@@ -4,7 +4,10 @@ vim.keymap.set("n", "gl", "<cmd>G log<cr>")
 return {
     {
         "tpope/vim-fugitive",
-        cmd = "G",
+        cmd = { "G", "GBrowse" },
+        dependencies = {
+            "tpope/vim-rhubarb",
+        },
     },
     {
         "lewis6991/gitsigns.nvim",

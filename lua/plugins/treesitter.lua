@@ -1,17 +1,13 @@
 return {
 	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	},
-	"nvim-treesitter/playground",
-	"windwp/nvim-ts-autotag",
-	"p00f/nvim-ts-rainbow",
-	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		dependencies = {
+			"nvim-treesitter/playground",
+			"windwp/nvim-ts-autotag",
+			"p00f/nvim-ts-rainbow",
+		},
+		event = "BufReadPost",
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = "all",

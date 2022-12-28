@@ -8,7 +8,7 @@ vim.cmd([[
     hi PMenuSel guibg=#141414 guifg=#fe8019
 
     hi PMenu guibg=NONE guifg=white
-    hi PMenuSBar guibg=red guifg=white
+    hi PMenuSBar guibg=#fe8019 guifg=white
     hi PMenuThumb guibg=NONE guifg=#141414
     hi WildMenu guibg=NONE guifg=#141414
 

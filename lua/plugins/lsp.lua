@@ -117,21 +117,18 @@ return {
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
                 on_attach = on_attach,
-                server = {
-                    capabilities = capabilities,
-                    settings = {
-                        ["rust-analyzer"] = {
-                            cargo = {
-                                allFeatures = true,
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = {
+                            allFeatures = true,
+                        },
+                        completion = {
+                            postfix = {
+                                enable = false,
                             },
-                            completion = {
-                                postfix = {
-                                    enable = false,
-                                },
-                            },
-                            checkOnSave = {
-                                command = "clippy",
-                            },
+                        },
+                        checkOnSave = {
+                            command = "clippy",
                         },
                     },
                 },

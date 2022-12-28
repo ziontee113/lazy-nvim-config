@@ -51,6 +51,8 @@ return {
                 vim.keymap.set("n", "<a-m>", vim.lsp.buf.rename, bufopts)
                 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, bufopts)
 
+                vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
+
                 vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
                 vim.keymap.set("n", "<A-,>", vim.lsp.buf.code_action, bufopts)
 

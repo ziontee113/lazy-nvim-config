@@ -1,3 +1,6 @@
+-- Lazy nvim
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>")
+
 -- Saving File
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set({ "i", "s" }, "<C-s>", "<Esc>:w<CR>")

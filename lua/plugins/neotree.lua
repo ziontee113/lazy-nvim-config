@@ -6,9 +6,9 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
-    keys = {
-        { "\\", "<cmd>NeoTreeRevealToggle<cr>", desc = "NeoTree" },
-    },
+	keys = {
+		{ "\\", "<cmd>NeoTreeRevealToggle<cr>", desc = "NeoTree" },
+	},
 	config = function()
 		require("neo-tree").setup()
 	end,

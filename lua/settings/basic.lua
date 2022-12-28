@@ -9,11 +9,8 @@ o.shiftwidth = 4
 o.expandtab = true
 
 o.smartindent = true
-
 o.wrap = false
-vim.g.mapleader = " "
 
-vim.cmd("set laststatus=0")
 o.cmdheight = 0
 o.scrolloff = 4
 
@@ -22,5 +19,22 @@ o.splitbelow = true
 
 o.cursorline = true
 
--- vim.cmd("set signcolumn=yes:1")
-vim.cmd"set statusline=%{repeat('─',winwidth('.'))}"
+o.fileencoding = "utf-8"
+o.termguicolors = true
+
+o.swapfile = false
+o.undofile = true
+
+o.ignorecase = true
+o.smartcase = true
+
+vim.g.mapleader = " "
+
+vim.cmd("set laststatus=0")
+
+vim.cmd([[set clipboard+=unnamedplus]])
+vim.cmd([[au BufEnter * :set formatoptions-=cro]])
+vim.cmd([[set nohlsearch]])
+
+vim.cmd("set signcolumn=yes:1")
+vim.cmd("set statusline=%{repeat('─',winwidth('.'))}")

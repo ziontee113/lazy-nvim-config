@@ -14,6 +14,11 @@ vim.opt.runtimepath:prepend(lazypath)
 require("mappings.basic")
 require("settings.basic")
 
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+    change_detection = {
+        enabled = false,
+        notify = false,
+    }
+})
 
 -- require("settings.colors")

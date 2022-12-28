@@ -1,2 +1,16 @@
+-- Saving File
 vim.keymap.set("n", "<C-s>", ":w<CR>")
-vim.keymap.set({"i", "s"}, "<C-s>", "<Esc>:w<CR>")
+vim.keymap.set({ "i", "s" }, "<C-s>", "<Esc>:w<CR>")
+
+-- <C-d> <C-u>
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Move Through Windows
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- Save Session and Quit
+vim.keymap.set("n", "<F12>", ":mks!<cr>:qa!<cr>")

@@ -11,7 +11,6 @@ o.expandtab = true
 o.smartindent = true
 o.wrap = false
 
-o.cmdheight = 0
 o.scrolloff = 4
 
 o.splitright = true
@@ -30,11 +29,12 @@ o.smartcase = true
 
 vim.g.mapleader = " "
 
-vim.cmd("set laststatus=0")
-
 vim.cmd([[set clipboard+=unnamedplus]])
 vim.cmd([[au BufEnter * :set formatoptions-=cro]])
 vim.cmd([[set nohlsearch]])
 
 vim.cmd("set signcolumn=yes:1")
 vim.cmd("set statusline=%{repeat('─',winwidth('.'))}")
+
+o.laststatus = 0
+o.cmdheight = 0

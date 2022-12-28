@@ -54,6 +54,9 @@ return {
 
 				vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", bufopts)
 
+				vim.keymap.set("n", "<A-j>", vim.diagnostic.goto_next)
+				vim.keymap.set("n", "<A-k>", vim.diagnostic.goto_prev)
+
 				if client.supports_method("textDocument/formatting") then
 					vim.api.nvim_clear_autocmds({ group = LspFormattingAugroup, buffer = bufnr })
 					vim.api.nvim_create_autocmd("BufWritePre", {

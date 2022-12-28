@@ -30,6 +30,8 @@ o.smartcase = true
 
 vim.g.mapleader = " "
 
+o.lazyredraw = true
+
 vim.cmd("set laststatus=0")
 
 vim.cmd([[set clipboard+=unnamedplus]])

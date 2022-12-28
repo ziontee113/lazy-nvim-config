@@ -5,8 +5,13 @@
   "neo-tree.nvim": { "branch": "v2.x", "commit": "73a90f6a736b51168ed05d89ed8872f75b98471c" },
   "nui.nvim": { "branch": "main", "commit": "4939282919885e1c83aff68ecb35b3cadf6015a9" },
   "null-ls.nvim": { "branch": "main", "commit": "eaacba0b93c416252894f8bdc68e6b50b4e4c3b4" },
+  "nvim-autopairs": { "branch": "master", "commit": "03580d758231956d33c8dd91e2be195106a79fa4" },
   "nvim-lspconfig": { "branch": "master", "commit": "42ca8ce0f2252be795da4789fadfa91f6c3f7464" },
+  "nvim-treesitter": { "branch": "master", "commit": "fb36ed4c9e962d9fbfa608cd4a5d9313b1e8a8b1" },
+  "nvim-ts-autotag": { "branch": "main", "commit": "fdefe46c6807441460f11f11a167a2baf8e4534b" },
+  "nvim-ts-rainbow": { "branch": "master", "commit": "064fd6c0a15fae7f876c2c6dd4524ca3fad96750" },
   "nvim-web-devicons": { "branch": "master", "commit": "05e1072f63f6c194ac6e867b567e6b437d3d4622" },
+  "playground": { "branch": "master", "commit": "8a887bcf66017bd775a0fb19c9d8b7a4d6759c48" },
   "plenary.nvim": { "branch": "master", "commit": "4b7e52044bbb84242158d977a50c4cbcd85070c7" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "0b1c41ad8052badca6e72eafa4bc5481152e483e" }
 }

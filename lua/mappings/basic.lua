@@ -1,3 +1,7 @@
+-- Closing window
+vim.keymap.set("n", "<leader>q", ":q<CR>")
+vim.keymap.set("n", "<leader><leader>q", ":qa!<CR>")
+
 -- Lazy nvim
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>")
 

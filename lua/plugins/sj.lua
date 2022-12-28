@@ -2,6 +2,7 @@ return {
 	"woosaaahh/sj.nvim",
 	config = function()
 		local sj = require("sj")
+
 		sj.setup({
 			auto_jump = true,
 			separator = "",
@@ -12,15 +13,13 @@ return {
 			sj.run({})
 		end
 
-		vim.keymap.set({ "n", "x" }, "s", function()
-			jump()
-		end)
+		vim.keymap.set({ "n", "x" }, "s", jump)
 
 		-- STS with SJ
-		local feed = function(mapping, mode)
-			local key = vim.api.nvim_replace_termcodes(mapping, true, false, true)
-			vim.api.nvim_feedkeys(key, mode or "m", false)
-		end
+		-- local feed = function(mapping, mode)
+		-- 	local key = vim.api.nvim_replace_termcodes(mapping, true, false, true)
+		-- 	vim.api.nvim_feedkeys(key, mode or "m", false)
+		-- end
 
 		-- vim.keymap.set("n", "<A-n>", function()
 		-- 	jump()

@@ -1,4 +1,5 @@
 {
+  "Comment.nvim": { "branch": "master", "commit": "45dc21a71ad1450606f5e98261badb28db59d74c" },
   "animation.nvim": { "branch": "main", "commit": "fb77091ab72ec9971aee0562e7081182527aaa6a" },
   "gruvbox.nvim": { "branch": "main", "commit": "c64ec557672c9c8ecc71a438533525482021377f" },
   "lazy.nvim": { "branch": "main", "commit": "dc03fa1ae57c3949874c9cae50074a83232c4eed" },

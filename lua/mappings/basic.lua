@@ -11,12 +11,14 @@ vim.keymap.set({ "i", "s" }, "<C-s>", "<Esc>:w<CR>")
 
 -- <C-d> <C-u>
 vim.keymap.set("n", "<C-d>", function()
-	vim.o.lazyredraw = false
+	vim.o.lazyredraw = true
 	vim.cmd("norm! zz")
+	vim.o.lazyredraw = false
 end)
 vim.keymap.set("n", "<C-u>", function()
-	vim.o.lazyredraw = false
+	vim.o.lazyredraw = true
 	vim.cmd("norm! zz")
+	vim.o.lazyredraw = false
 end)
 
 -- Move Through Windows

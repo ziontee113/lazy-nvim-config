@@ -1,4 +1,5 @@
 vim.keymap.set("n", "<C-9>", "<cmd>G<cr>")
+vim.keymap.set("n", "gl", "<cmd>G log<cr>")
 
 return {
     {

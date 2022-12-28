@@ -5,6 +5,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -116,5 +117,44 @@ return {
 				select = false,
 			},
 		})
+
+		-- LuaSnip Settings
+		require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+		luasnip.config.set_config({
+			history = true,
+			updateevents = "TextChanged, TextChangedI",
+			enable_autosnippets = true,
+		})
+
+		-- Keymaps
+		vim.keymap.set({ "i", "s" }, "<a-p>", function()
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand()
+			end
+		end, { silent = true })
+
+		vim.keymap.set({ "i", "s" }, "<a-k>", function()
+			if luasnip.jumpable(1) then
+				luasnip.jump(1)
+			end
+		end, { silent = true })
+		vim.keymap.set({ "i", "s" }, "<a-j>", function()
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			end
+		end, { silent = true })
+
+		-- special function
+		vim.keymap.set({ "i", "s" }, "<a-l>", function()
+			if luasnip.choice_active() then
+				luasnip.change_choice(1)
+			end
+		end)
+
+		vim.keymap.set({ "i", "s" }, "<a-h>", function()
+			if luasnip.choice_active() then
+				luasnip.change_choice(-1)
+			end
+		end)
 	end,
 }

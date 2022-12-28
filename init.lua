@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+require("settings.basic")
+
 require("lazy").setup("plugins", {
 	change_detection = {
 		enabled = false,
@@ -18,7 +20,6 @@ require("lazy").setup("plugins", {
 	},
 })
 
-require("settings.basic")
 require("mappings.basic")
 -- require("settings.colors")
 require("settings.transparent")

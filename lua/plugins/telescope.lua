@@ -5,7 +5,12 @@ return {
 	cmd = "Telescope",
 	keys = {
 		{ "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
-		{ "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
+		{ "<C-g>", "<cmd>Telescope grep_string<cr>", desc = "Telescope live_grep" },
+		{ "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Telescope find_files" },
+
+		{ "<leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Telescope find_files" },
+		{ "<leader>e", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
+		{ "<leader>g", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
 		{ "<leader>h", "<cmd>Telescope highlights<cr>", desc = "Telescope live_grep" },
 	},
 	config = function()

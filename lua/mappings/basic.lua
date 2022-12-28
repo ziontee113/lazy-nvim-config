@@ -1,3 +1,6 @@
+-- Move to beginning of line
+vim.keymap.set("n", ")", "^")
+
 -- Closing window
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader><leader>q", ":qa!<CR>")
@@ -29,3 +32,4 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Save Session and Quit
 vim.keymap.set("n", "<F12>", ":mks!<cr>:qa!<cr>")
+vim.keymap.set("n", "<F11>", ":set cmdheight=0<cr>")

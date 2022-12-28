@@ -20,4 +20,5 @@ require("lazy").setup("plugins", {
 
 require("settings.basic")
 require("mappings.basic")
-require("settings.colors")
+-- require("settings.colors")
+require("settings.transparent")

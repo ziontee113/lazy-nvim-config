@@ -14,6 +14,7 @@ return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.rustywind,
 				},
 			})
 		end,
@@ -74,6 +75,15 @@ return {
 
 			-- Language Servers
 			local lspconfig = require("lspconfig")
+
+			-- Generic Settings
+			local generic_servers = { "svelte", "tailwindcss" }
+			for _, server in ipairs(generic_servers) do
+				lspconfig[server].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end
 
 			-- Lua
 			lspconfig.sumneko_lua.setup({

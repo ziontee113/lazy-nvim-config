@@ -1,6 +1,11 @@
 return {
+	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	},
 	"nvim-treesitter/playground",
-	"windwp/nvim-autopairs",
 	"windwp/nvim-ts-autotag",
 	"p00f/nvim-ts-rainbow",
 	{

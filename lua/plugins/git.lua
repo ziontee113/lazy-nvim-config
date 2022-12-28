@@ -1,3 +1,5 @@
+vim.keymap.set("n", "<C-9>", "<cmd>G<cr>")
+
 return {
 	{
 		"tpope/vim-fugitive",

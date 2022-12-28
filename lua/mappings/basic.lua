@@ -10,8 +10,14 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set({ "i", "s" }, "<C-s>", "<Esc>:w<CR>")
 
 -- <C-d> <C-u>
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", function()
+	vim.o.lazyredraw = false
+	vim.cmd("norm! zz")
+end)
+vim.keymap.set("n", "<C-u>", function()
+	vim.o.lazyredraw = false
+	vim.cmd("norm! zz")
+end)
 
 -- Move Through Windows
 vim.keymap.set("n", "<C-j>", "<C-w>j")

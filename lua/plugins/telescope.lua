@@ -6,6 +6,7 @@ return {
 	keys = {
 		{ "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
 		{ "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
+		{ "<leader>h", "<cmd>Telescope highlights<cr>", desc = "Telescope live_grep" },
 	},
 	config = function()
 		local actions = require("telescope.actions")

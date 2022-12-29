@@ -53,8 +53,8 @@ return {
 
                 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
 
-                vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-                vim.keymap.set("n", "<A-,>", vim.lsp.buf.code_action, bufopts)
+                vim.keymap.set({ "n", "x" }, "<space>ca", vim.lsp.buf.code_action, bufopts)
+                vim.keymap.set({ "n", "x" }, "<A-,>", vim.lsp.buf.code_action, bufopts)
 
                 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", bufopts)
 

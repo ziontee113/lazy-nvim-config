@@ -2,7 +2,8 @@
 vim.keymap.set({ "i", "s" }, "<A-/>", "_")
 
 -- Move to beginning of line
-vim.keymap.set("n", ")", "^")
+vim.keymap.set("n", "0", "^")
+vim.keymap.set("n", ")", "0")
 
 -- Closing window
 vim.keymap.set("n", "<leader>q", ":q<CR>")
@@ -34,6 +35,7 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Save Session and Quit
+vim.keymap.set("n", "<F9>", ":wa!<cr>")
 vim.keymap.set("n", "<F12>", ":mks!<cr>:qa!<cr>")
 vim.keymap.set("n", "<F11>", function()
     if vim.o.cmdheight == 0 then

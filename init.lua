@@ -21,5 +21,6 @@ require("lazy").setup("plugins", {
 })
 
 require("mappings.basic")
+require("mappings.paragraph-jumping")
 -- require("settings.colors")
 require("settings.transparent")

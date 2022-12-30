@@ -114,8 +114,13 @@ return {
             })
 
             -- Rust
+            local rust_capabilities = capabilities
+            rust_capabilities.textDocument.completion.completionItem.resolveSupport = {
+                properties = { "documentation", "detail", "additionalTextEdits" },
+            }
+
             lspconfig.rust_analyzer.setup({
-                capabilities = capabilities,
+                capabilities = rust_capabilities,
                 on_attach = on_attach,
                 settings = {
                     ["rust-analyzer"] = {

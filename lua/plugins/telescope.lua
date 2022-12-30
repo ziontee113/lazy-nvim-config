@@ -16,6 +16,7 @@ return {
         -- { "<leader>e", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
         { "<leader>g", "<cmd>Telescope grep_string<cr>", desc = "Telescope live_grep" },
         { "<leader>h", "<cmd>Telescope highlights<cr>", desc = "Telescope live_grep" },
+        { "<leader>t", "<cmd>Telescope help_tags<cr>", desc = "Telescope live_grep" },
     },
     config = function()
         local actions = require("telescope.actions")

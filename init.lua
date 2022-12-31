@@ -26,3 +26,4 @@ require("mappings.paragraph-jumping")
 require("settings.transparent")
 
 require("scripts.cwd_curl")
+require("scripts.REMOTE_MAPPING")

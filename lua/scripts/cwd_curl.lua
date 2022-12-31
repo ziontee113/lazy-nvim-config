@@ -1,3 +1,5 @@
+---@diagnostic disable: unused-local
+
 local augroup = vim.api.nvim_create_augroup("CWD_curl", { clear = true })
 
 vim.api.nvim_create_autocmd({ "FocusGained", "VimEnter" }, {
@@ -17,11 +19,11 @@ vim.api.nvim_create_autocmd({ "FocusGained", "VimEnter" }, {
             '{"cwd":"' .. cwd .. '"}',
         }, {
             on_stdout = function(_, data)
-                if data then
-                    print(vim.inspect(data))
-                    print(cwd)
-                    print('{"cwd":"' .. cwd .. '"}')
-                end
+                -- if data then
+                --     print(vim.inspect(data))
+                --     print(cwd)
+                --     print('{"cwd":"' .. cwd .. '"}')
+                -- end
             end,
         })
     end,

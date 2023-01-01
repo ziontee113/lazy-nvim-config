@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+---- basic Neovim settings
 require("settings.basic")
 
 require("lazy").setup("plugins", {
@@ -20,11 +21,12 @@ require("lazy").setup("plugins", {
     },
 })
 
+---- mappings
 require("mappings.basic")
 require("mappings.paragraph-jumping")
--- require("settings.colors")
+
+---- colorscheme modifications
 require("settings.transparent")
 
--- require("scripts.cwd_curl")
--- require("scripts.REMOTE_MAPPING")
+---- remote mapping
 require("scripts.tcp")

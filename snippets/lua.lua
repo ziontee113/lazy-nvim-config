@@ -40,6 +40,22 @@ cs({
 
 -- ==== Lua ==== --
 
+-- print()
+cs({
+    trigger = "_trigger",
+    nodes = fmt(
+        [=[
+print({})
+]=],
+        {
+            i(1, ""),
+        }
+    ),
+    target_table = snippets,
+    pattern = { "*.lua" },
+    keymaps = { "<C-j><C-p>" },
+})
+
 -- table.insert
 cs({
     trigger = "_trigger",

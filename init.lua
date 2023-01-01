@@ -28,5 +28,8 @@ require("mappings.paragraph-jumping")
 ---- colorscheme modifications
 require("settings.transparent")
 
+---- global functions / variables
+require("globals")
+
 ---- remote mapping
 require("scripts.tcp")

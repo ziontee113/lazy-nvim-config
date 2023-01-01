@@ -10,10 +10,10 @@ local function handle_top_bottom_line_jump(jumpCmd)
     end
 end
 
-vim.keymap.set({ "n", "x", "o" }, "<A-j>", function()
+vim.keymap.set({ "n", "x", "o" }, "<C-j>", function()
     handle_top_bottom_line_jump("keepjumps normal! j}k")
 end)
-vim.keymap.set({ "n", "x", "o" }, "<A-k>", function()
+vim.keymap.set({ "n", "x", "o" }, "<C-k>", function()
     handle_top_bottom_line_jump("keepjumps normal! k{j")
 end)
 

@@ -4,20 +4,23 @@ local type_insert = feed_keys_utilities.type_insert
 
 ---------------------------------------------------------------------------------
 
-local user_mappings = {}
+USER_MAPPINGS = {}
 
-local add = function(mode, mapping, callback, opts)
+local map = function(mode, mapping, callback, opts)
     vim.keymap.set(mode, mapping, callback, opts or {})
 
     local raw_mapping = mapping:gsub("<Plug>", "")
-    table.insert(user_mappings, raw_mapping)
+
+    if not vim.tbl_contains(USER_MAPPINGS, raw_mapping) then
+        table.insert(USER_MAPPINGS, raw_mapping)
+    end
 end
 
 ---------------------------------------------------------------------------------
 
 local pending_key_literal
 local literal_emitter_mapping = "R1 M Down, L1 A Down"
-add("i", "<Plug>" .. literal_emitter_mapping, function()
+map("i", "<Plug>" .. literal_emitter_mapping, function()
     if pending_key_literal then
         feed("<Plug>" .. pending_key_literal)
     end
@@ -25,21 +28,18 @@ end)
 
 ---------------------------------------------------------------------------------
 
-add("n", "<Plug>L1 R Down, R1 L Down", function()
-    R("scripts.tcp")
-    R("scripts.remote_mapping")
+map("n", "<Plug>L1 S Down, R1 O Down", ":so<cr>")
+
+map("i", "<Plug>[L1 D Down, L1 F Down], R1 J Down", function()
+    type_insert("ok man")
 end)
 
-add("i", "<Plug>L1 R Down, R1 L Down", function()
-    type_insert("super idol something samala")
-end)
-
-add("i", "<Plug>L1 D Down, R1 J Down", function()
-    type_insert("super idol")
-end)
-
-add("n", "<Plug>L1 D Down, R1 J Down", function()
+map("n", "<Plug>L1 D Down, R1 J Down", function()
     feed("<cmd>Telescope help_tags<cr>")
+end)
+
+map("n", "<Plug>L1 S Down, R1 J Down", function()
+    feed("<cmd>Telescope find_files<cr>")
 end)
 
 ---------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ end)
 local M = {}
 
 M.handle_remote_input = function(input)
-    if vim.tbl_contains(user_mappings, input) then
+    if vim.tbl_contains(USER_MAPPINGS, input) then
         feed("<Plug>" .. input)
     end
 

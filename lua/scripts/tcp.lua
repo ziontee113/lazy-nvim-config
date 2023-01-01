@@ -19,7 +19,9 @@ end
 local server = create_server("0.0.0.0", 0, function(sock)
     sock:read_start(function(_, chunk)
         if chunk then
-            rm.handle_remote_input(chunk)
+            vim.schedule(function()
+                rm.handle_remote_input(chunk)
+            end)
             sock:write(chunk)
         else
             sock:close()

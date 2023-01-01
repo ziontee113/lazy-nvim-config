@@ -1,5 +1,11 @@
 return {
     "kylechui/nvim-surround",
+    keys = {
+        { "ds", mode = "n" },
+        { "cs", mode = "n" },
+        { "ys", mode = "n" },
+        { "S", mode = "x" },
+    },
     config = function()
         require("nvim-surround").setup({
             keymaps = {

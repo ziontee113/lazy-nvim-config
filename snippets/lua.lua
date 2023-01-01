@@ -98,7 +98,7 @@ cs({
     trigger = "_trigger",
     nodes = fmt(
         [=[
-local function {}({})
+local {} = function({})
     {}
 end
 ]=],

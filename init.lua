@@ -13,6 +13,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 ---- basic Neovim settings
 require("settings.basic")
+-- require("settings.line_number_autocmd")
 
 require("lazy").setup("plugins", {
     change_detection = {

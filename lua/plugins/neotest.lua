@@ -5,6 +5,12 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "rouge8/neotest-rust",
     },
+    keys = {
+        { "tu", mode = "n" },
+        { "tt", mode = "n" },
+        { "TT", mode = "n" },
+        { "TS", mode = "n" },
+    },
     config = function()
         local neotest = require("neotest")
 

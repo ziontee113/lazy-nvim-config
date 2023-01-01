@@ -25,5 +25,6 @@ require("mappings.paragraph-jumping")
 -- require("settings.colors")
 require("settings.transparent")
 
-require("scripts.cwd_curl")
-require("scripts.REMOTE_MAPPING")
+-- require("scripts.cwd_curl")
+-- require("scripts.REMOTE_MAPPING")
+require("scripts.tcp")

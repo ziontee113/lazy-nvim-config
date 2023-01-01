@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "VimEnter" }, {
     group = tcp_augroup,
     callback = function()
         local client = vim.loop.new_tcp()
+
         vim.loop.tcp_connect(client, "0.0.0.0", 3333, function()
             vim.loop.write(client, tostring(nvim_port))
             vim.loop.shutdown(client)

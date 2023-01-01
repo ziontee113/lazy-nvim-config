@@ -1,3 +1,5 @@
+---@diagnostic disable: unused-local, unused-function
+
 local M = {}
 
 local feed = function(mapping, mode)
@@ -12,6 +14,9 @@ end
 
 M.handle_remote_input = function(input)
     print(input)
+
+    -- TODOS:
+    -- Install our created plugins
 end
 
 return M

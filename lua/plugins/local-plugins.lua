@@ -1,5 +1,20 @@
 return {
     {
+        dir = "~/.local/share/nvim/site/pack/packer/start/nvim-treehopper/",
+        keys = {
+            { "vm", mode = "n" },
+        },
+        config = function()
+            local tree_hopper = require("tsht")
+
+            tree_hopper.config.ft_to_parser.typescriptreact = "tsx"
+
+            vim.keymap.set("n", "vm", function()
+                tree_hopper.nodes()
+            end, {})
+        end,
+    },
+    {
         dir = "~/.config/nvim-custom-plugin/color-picker/",
         keys = {
             { "<C-c>", "<cmd>PickColor<cr>", mode = "n" },

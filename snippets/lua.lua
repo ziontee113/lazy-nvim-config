@@ -321,12 +321,13 @@ cs({
     trigger = "_trigger",
     nodes = fmt(
         [=[
-map("{}", "{}", {}, {{{}}})
+map("{}", "{}", {})
 ]=],
         {
             c(1, { i(1, "n"), i(1, "x") }),
             i(2, ""),
             c(3, {
+                fmt([["{}"]], i(1, "")),
                 fmt(
                     [[
 function()
@@ -335,9 +336,7 @@ end
             ]],
                     i(1, "")
                 ),
-                fmt([["{}"]], i(1, "")),
             }),
-            c(4, { i(1, ""), fmt([[ buffer = {} ]], { i(1, "buf") }, { dedent = false }) }),
         }
     ),
     target_table = snippets,

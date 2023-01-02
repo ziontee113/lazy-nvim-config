@@ -40,6 +40,58 @@ map({ "n", "x" }, "<Plug>L1 F, R1 K</>", "/[()]<cr>")
 map({ "n", "x" }, "<Plug>L1 F, L1 Q</>", [=[?['"]<cr>]=])
 map({ "n", "x" }, "<Plug>L1 F, L1 W</>", [=[/['"]<cr>]=])
 
+--------------------------------------------------------------------------------- Relative Line Jump
+
+-- K up
+map("n", "<Plug>R1 K, L1 1</>", "20k")
+map("n", "<Plug>R1 K, L1 2</>", "19k")
+map("n", "<Plug>R1 K, L1 3</>", "18k")
+map("n", "<Plug>R1 K, L1 4</>", "17k")
+map("n", "<Plug>R1 K, L1 5</>", "16k")
+
+map("n", "<Plug>R1 K, L1 Q</>", "15k")
+map("n", "<Plug>R1 K, L1 W</>", "14k")
+map("n", "<Plug>R1 K, L1 E</>", "13k")
+map("n", "<Plug>R1 K, L1 R</>", "12k")
+map("n", "<Plug>R1 K, L1 T</>", "11k")
+
+map("n", "<Plug>R1 K, L1 A</>", "10k")
+map("n", "<Plug>R1 K, L1 S</>", "9k")
+map("n", "<Plug>R1 K, L1 D</>", "8k")
+map("n", "<Plug>R1 K, L1 F</>", "7k")
+map("n", "<Plug>R1 K, L1 G</>", "6k")
+
+map("n", "<Plug>R1 K, L1 Z</>", "5k")
+map("n", "<Plug>R1 K, L1 X</>", "4k")
+map("n", "<Plug>R1 K, L1 C</>", "3k")
+map("n", "<Plug>R1 K, L1 V</>", "2k")
+map("n", "<Plug>R1 K, L1 B</>", "1k")
+
+-- J Down
+map("n", "<Plug>R1 J, L1 1</>", "20j")
+map("n", "<Plug>R1 J, L1 2</>", "19j")
+map("n", "<Plug>R1 J, L1 3</>", "18j")
+map("n", "<Plug>R1 J, L1 4</>", "17j")
+map("n", "<Plug>R1 J, L1 5</>", "16j")
+
+map("n", "<Plug>R1 J, L1 Q</>", "15j")
+map("n", "<Plug>R1 J, L1 W</>", "14j")
+map("n", "<Plug>R1 J, L1 E</>", "13j")
+map("n", "<Plug>R1 J, L1 R</>", "12j")
+map("n", "<Plug>R1 J, L1 T</>", "11j")
+
+map("n", "<Plug>R1 J, L1 A</>", "10j")
+map("n", "<Plug>R1 J, L1 S</>", "9j")
+map("n", "<Plug>R1 J, L1 D</>", "8j")
+map("n", "<Plug>R1 J, L1 F</>", "7j")
+map("n", "<Plug>R1 J, L1 G</>", "6j")
+
+map("n", "<Plug>R1 J, L1 Z</>", "5j")
+map("n", "<Plug>R1 J, L1 X</>", "4j")
+map("n", "<Plug>R1 J, L1 C</>", "3j")
+map("n", "<Plug>R1 J, L1 V</>", "2j")
+map("n", "<Plug>R1 J, L1 B</>", "1j")
+
 --------------------------------------------------------------------------------- mini.ai
 
 map("n", "<Plug>L1 C, L1 B</>", "cib", { remap = true })
@@ -52,9 +104,9 @@ map("n", "<Plug>L1 C, R1 K</>", "ci(", { remap = true })
 map("n", "<Plug>L1 C, R1 K, R1 J</>", "cil(", { remap = true })
 map("n", "<Plug>L1 C, R1 K, R1 L</>", "cin(", { remap = true })
 
-map("n", "<Plug>L1 C, R1 L</>", "ciq", { remap = true })
-map("n", "<Plug>L1 C, R1 L, R1 J</>", "cilq", { remap = true })
-map("n", "<Plug>L1 C, R1 L, R1 K</>", "cinq", { remap = true })
+map("n", "<Plug>L1 C, R1 H</>", "ciq", { remap = true })
+map("n", "<Plug>L1 C, R1 H, R1 J</>", "cilq", { remap = true })
+map("n", "<Plug>L1 C, R1 H, R1 K</>", "cinq", { remap = true })
 
 --------------------------------------------------------------------------------- Select In Brackets
 

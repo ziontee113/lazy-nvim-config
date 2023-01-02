@@ -40,6 +40,14 @@ map({ "n", "x" }, "<Plug>L1 F, R1 K</>", "/[()]<cr>")
 map({ "n", "x" }, "<Plug>L1 F, L1 Q</>", [=[?['"]<cr>]=])
 map({ "n", "x" }, "<Plug>L1 F, L1 W</>", [=[/['"]<cr>]=])
 
+--------------------------------------------------------------------------------- Crazy Combos
+
+map("n", "<Plug>L1 D, R1 J, L1 D Up, L1 Q</>", "<cmd>vs<cr>") -- works
+map("n", "<Plug>[L1 D, L1 F], R1 J, L1 F Up, L1 D Up, L1 Q</>", "<cmd>sp<cr>") -- also works
+map("n", "<Plug>[L1 D, L1 F], [R1 J, R1 K], L1 F Up, L1 G</>", function()
+    print("Crazy In Love!")
+end) -- also works
+
 --------------------------------------------------------------------------------- Relative Line Jump
 
 -- K up

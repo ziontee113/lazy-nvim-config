@@ -316,6 +316,35 @@ local {} = vim.api.nvim_create_namespace("{}")
     keymaps = { "<C-j>ns" },
 })
 
+-- Add Remote Mapping
+cs({
+    trigger = "_trigger",
+    nodes = fmt(
+        [=[
+map("{}", "{}", {}, {{{}}})
+]=],
+        {
+            c(1, { i(1, "n"), i(1, "x") }),
+            i(2, ""),
+            c(3, {
+                fmt(
+                    [[
+function()
+    {}
+end
+            ]],
+                    i(1, "")
+                ),
+                fmt([["{}"]], i(1, "")),
+            }),
+            c(4, { i(1, ""), fmt([[ buffer = {} ]], { i(1, "buf") }, { dedent = false }) }),
+        }
+    ),
+    target_table = snippets,
+    pattern = { "*.lua" },
+    keymaps = { "<C-k><C-m>" },
+})
+
 -- vim.keymap.set
 cs({
     trigger = "_trigger",

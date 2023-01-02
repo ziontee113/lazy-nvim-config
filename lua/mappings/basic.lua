@@ -1,3 +1,10 @@
+-- Jump list relative line jump
+vim.keymap.set("n", "j", [[(v:count > 1 ? "m'" . v:count : '') . 'j']], { expr = true })
+vim.keymap.set("n", "k", [[(v:count > 1 ? "m'" . v:count : '') . 'k']], { expr = true })
+
+-- Select word under cursor
+vim.keymap.set("n", "vv", "viw", {})
+
 -- Press <C-/> for inputting "_"
 vim.keymap.set({ "i", "s" }, "<A-/>", "_")
 

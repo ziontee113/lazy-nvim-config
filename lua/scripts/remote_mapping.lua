@@ -19,28 +19,21 @@ end
 ---------------------------------------------------------------------------------
 
 local pending_key_literal
-local literal_emitter_mapping = "R1 M Down, L1 A Down"
+local literal_emitter_mapping = "R1 M, L1 A"
 map("i", "<Plug>" .. literal_emitter_mapping, function()
     if pending_key_literal then
         feed("<Plug>" .. pending_key_literal)
     end
 end)
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------- Testing
 
-map("n", "<Plug>L1 S Down, R1 O Down", ":so<cr>")
+map("n", "<Plug>L1 S, R1 O", ":so<cr>")
 
-map("i", "<Plug>[L1 D Down, L1 F Down], R1 J Down", function()
-    type_insert("ok man")
-end)
+--------------------------------------------------------------------------------- Surround
 
-map("n", "<Plug>L1 D Down, R1 J Down", function()
-    feed("<cmd>Telescope help_tags<cr>")
-end)
-
-map("n", "<Plug>L1 S Down, R1 J Down", function()
-    feed("<cmd>Telescope find_files<cr>")
-end)
+map("n", "<Plug>L1 S, R1 J", "ysiw}", { remap = true })
+map("n", "<Plug>L1 S, R1 K", "ysiw)", { remap = true })
 
 ---------------------------------------------------------------------------------
 

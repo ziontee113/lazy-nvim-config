@@ -46,59 +46,29 @@ map("n", "<Plug>L1 D, R1 J, L1 D Up, L1 Q</>", "<cmd>vs<cr>") -- works
 map("n", "<Plug>[L1 D, L1 F], R1 J, L1 F Up, L1 D Up, L1 Q</>", "<cmd>sp<cr>") -- also works
 map("n", "<Plug>[L1 D, L1 F], [R1 J, R1 K], L1 F Up, L1 G</>", function()
     print("Crazy In Love!")
-end) -- also works
+end) -- crazy!
 
 --------------------------------------------------------------------------------- Relative Line Jump
 
--- K up
-map("n", "<Plug>R1 K, L1 1</>", "20k")
-map("n", "<Plug>R1 K, L1 2</>", "19k")
-map("n", "<Plug>R1 K, L1 3</>", "18k")
-map("n", "<Plug>R1 K, L1 4</>", "17k")
-map("n", "<Plug>R1 K, L1 5</>", "16k")
+local create_relative_jump_mappings = function()
+    -- stylua: ignore
+    local keys = {
+        "Z", "X", "C", "V", "B",
+        "A", "S", "D", "F", "G",
+        "Q", "W", "E", "R", "T",
+        "1", "2", "3", "4", "5",
+    }
 
-map("n", "<Plug>R1 K, L1 Q</>", "15k")
-map("n", "<Plug>R1 K, L1 W</>", "14k")
-map("n", "<Plug>R1 K, L1 E</>", "13k")
-map("n", "<Plug>R1 K, L1 R</>", "12k")
-map("n", "<Plug>R1 K, L1 T</>", "11k")
+    for count, key in ipairs(keys) do
+        map({ "n", "x" }, "<Plug>R1 K, L1 " .. key .. "</>", count .. "k")
+        map({ "n", "x" }, "<Plug>R1 J, L1 " .. key .. "</>", count .. "j")
 
-map("n", "<Plug>R1 K, L1 A</>", "10k")
-map("n", "<Plug>R1 K, L1 S</>", "9k")
-map("n", "<Plug>R1 K, L1 D</>", "8k")
-map("n", "<Plug>R1 K, L1 F</>", "7k")
-map("n", "<Plug>R1 K, L1 G</>", "6k")
+        map("n", "<Plug>L1 D, R1 J, !L1 D, L1 " .. key .. "</>", "d" .. count .. "j")
+        map("n", "<Plug>L1 D, R1 K, !L1 D, L1 " .. key .. "</>", "d" .. count .. "k")
+    end
+end
 
-map("n", "<Plug>R1 K, L1 Z</>", "5k")
-map("n", "<Plug>R1 K, L1 X</>", "4k")
-map("n", "<Plug>R1 K, L1 C</>", "3k")
-map("n", "<Plug>R1 K, L1 V</>", "2k")
-map("n", "<Plug>R1 K, L1 B</>", "1k")
-
--- J Down
-map("n", "<Plug>R1 J, L1 1</>", "20j")
-map("n", "<Plug>R1 J, L1 2</>", "19j")
-map("n", "<Plug>R1 J, L1 3</>", "18j")
-map("n", "<Plug>R1 J, L1 4</>", "17j")
-map("n", "<Plug>R1 J, L1 5</>", "16j")
-
-map("n", "<Plug>R1 J, L1 Q</>", "15j")
-map("n", "<Plug>R1 J, L1 W</>", "14j")
-map("n", "<Plug>R1 J, L1 E</>", "13j")
-map("n", "<Plug>R1 J, L1 R</>", "12j")
-map("n", "<Plug>R1 J, L1 T</>", "11j")
-
-map("n", "<Plug>R1 J, L1 A</>", "10j")
-map("n", "<Plug>R1 J, L1 S</>", "9j")
-map("n", "<Plug>R1 J, L1 D</>", "8j")
-map("n", "<Plug>R1 J, L1 F</>", "7j")
-map("n", "<Plug>R1 J, L1 G</>", "6j")
-
-map("n", "<Plug>R1 J, L1 Z</>", "5j")
-map("n", "<Plug>R1 J, L1 X</>", "4j")
-map("n", "<Plug>R1 J, L1 C</>", "3j")
-map("n", "<Plug>R1 J, L1 V</>", "2j")
-map("n", "<Plug>R1 J, L1 B</>", "1j")
+create_relative_jump_mappings()
 
 --------------------------------------------------------------------------------- mini.ai
 

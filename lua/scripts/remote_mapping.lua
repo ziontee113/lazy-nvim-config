@@ -59,12 +59,16 @@ local create_relative_jump_mappings = function()
         "1", "2", "3", "4", "5",
     }
 
-    for count, key in ipairs(keys) do
-        map({ "n", "x", "o" }, "<Plug>R1 K, L1 " .. key .. "", count .. "k")
-        map({ "n", "x", "o" }, "<Plug>R1 J, L1 " .. key .. "", count .. "j")
+    local count_and_mark = function(count, key)
+        return function()
+            feed("m'", "n")
+            feed(count .. key, "n")
+        end
+    end
 
-        map("n", "<Plug>L1 D, R1 J, !L1 D, L1 " .. key .. "", "d" .. count .. "j")
-        map("n", "<Plug>L1 D, R1 K, !L1 D, L1 " .. key .. "", "d" .. count .. "k")
+    for count, key in ipairs(keys) do
+        map({ "n", "x", "o" }, "<Plug>R1 K, L1 " .. key .. "", count_and_mark(count, "k"))
+        map({ "n", "x", "o" }, "<Plug>R1 J, L1 " .. key .. "", count_and_mark(count, "j"))
     end
 end
 

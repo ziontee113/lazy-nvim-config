@@ -60,8 +60,8 @@ local create_relative_jump_mappings = function()
     }
 
     for count, key in ipairs(keys) do
-        map({ "n", "x" }, "<Plug>R1 K, L1 " .. key .. "", count .. "k")
-        map({ "n", "x" }, "<Plug>R1 J, L1 " .. key .. "", count .. "j")
+        map({ "n", "x", "o" }, "<Plug>R1 K, L1 " .. key .. "", count .. "k")
+        map({ "n", "x", "o" }, "<Plug>R1 J, L1 " .. key .. "", count .. "j")
 
         map("n", "<Plug>L1 D, R1 J, !L1 D, L1 " .. key .. "", "d" .. count .. "j")
         map("n", "<Plug>L1 D, R1 K, !L1 D, L1 " .. key .. "", "d" .. count .. "k")
@@ -107,10 +107,6 @@ map("n", "<Plug>L1 V, L1 S", "<cmd>vs<cr>")
 
 map("n", "<Plug>L1 S, R1 J", "ysiw}", { remap = true })
 map("n", "<Plug>L1 S, R1 K", "ysiw)", { remap = true })
-
-map("n", "d<Plug>R1 J, L1 A", function()
-    print("for real!")
-end)
 
 ---------------------------------------------------------------------------------
 

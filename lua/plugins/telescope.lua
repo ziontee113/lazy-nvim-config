@@ -4,13 +4,16 @@ return {
     dependencies = { { "nvim-lua/plenary.nvim" } },
     cmd = "Telescope",
     keys = {
-        ---- Remote mappings
         {
             "<Plug>L1 E, R1 J<Plug>",
             "<cmd>Telescope find_files<cr>",
             desc = "Telescope find_files",
         },
-        { "<Plug>L1 E, R1 H<Plug>", "<cmd>Telescope help_tags<cr>", desc = "Telescope help_tags" },
+        {
+            "<Plug>L1 E, R1 H<Plug>",
+            "<cmd>Telescope help_tags<cr>",
+            desc = "Telescope help_tags",
+        },
         {
             "<Plug>L1 E, R1 H, R1 I<Plug>",
             "<cmd>Telescope highlights<cr>",

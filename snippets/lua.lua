@@ -321,7 +321,7 @@ cs({
     trigger = "_trigger",
     nodes = fmt(
         [=[
-map("{}", "{}", {})
+REMAP("{}", "{}", {})
 ]=],
         {
             c(1, { i(1, "n"), i(1, "x") }),

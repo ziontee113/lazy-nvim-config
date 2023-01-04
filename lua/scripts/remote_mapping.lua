@@ -108,7 +108,7 @@ REMAP("n", "<Plug>L1 V, L1 A, R1 K<Plug>", "va(")
 REMAP("n", "<Plug>L1 V, R1 H<Plug>", [[viq]], { remap = true })
 REMAP("n", "<Plug>L1 V, L1 A, R1 H<Plug>", [[vaq]], { remap = true })
 
---------------------------------------------------------------------------------- General
+--------------------------------------------------------------------------------- Update User Mapping
 
 local M = {}
 
@@ -131,6 +131,33 @@ REMAP("n", "<Plug>L1 S, R1 O<Plug>", function()
     vim.cmd("so")
     M.update_user_mappings_tbl()
 end)
+
+--------------------------------------------------------------------------------- Delete
+
+REMAP("n", "<Plug>L1 D, R1 L<Plug>", "dd")
+
+--------------------------------------------------------------------------------- Arsham's Create empty lines
+
+local function insert_empty_lines(count, add)
+    if count == 0 then
+        count = 1
+    end
+    local lines = {}
+    for i = 1, count do
+        lines[i] = ""
+    end
+    local pos = vim.api.nvim_win_get_cursor(0)
+    vim.api.nvim_buf_set_lines(0, pos[1] + add, pos[1] + add, false, lines)
+end
+
+REMAP("n", "<Plug>L1 S, R1 U<Plug>", function()
+    insert_empty_lines(1, -1)
+end)
+REMAP("n", "<Plug>L1 S, R1 I<Plug>", function()
+    insert_empty_lines(1, 0)
+end)
+
+--------------------------------------------------------------------------------- General
 
 REMAP("n", "<Plug>L1 D, L1 W<Plug>", "<cmd>q<cr>")
 REMAP("n", "<Plug>L1 V, L1 S<Plug>", "<cmd>vs<cr>")

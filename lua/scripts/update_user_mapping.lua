@@ -1,6 +1,6 @@
 local M = {}
 
-M.update_user_mappings_tbl = function(bufnr)
+M.update = function(bufnr)
     local modes = { "n", "v", "V", "i", "s" }
 
     for _, mode in ipairs(modes) do
@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost" }, {
     pattern = "*",
     group = augroup,
     callback = function()
-        M.update_user_mappings_tbl(0)
+        M.update(0)
     end,
 })
 

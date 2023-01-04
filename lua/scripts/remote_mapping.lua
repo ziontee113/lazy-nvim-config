@@ -116,7 +116,7 @@ REMAP("n", "<Plug>L1 V, L1 A, R1 H<Plug>", [[vaq]], { remap = true })
 
 REMAP("n", "<Plug>L1 S, R1 O<Plug>", function()
     vim.cmd("so")
-    require("scripts.update_user_mapping").update_user_mappings_tbl()
+    require("scripts.update_user_mapping").update()
 end)
 
 --------------------------------------------------------------------------------- Delete
@@ -176,6 +176,6 @@ M.handle_remote_input = function(remote_input)
     end
 end
 
-M.update_user_mappings_tbl()
+require("scripts.update_user_mapping").update()
 
 return M

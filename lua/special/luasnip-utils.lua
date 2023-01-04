@@ -22,7 +22,23 @@ function M.create_snippet(opts)
                 keymap = { { "i", "s" }, keymap }
             end
 
-            vim.api.nvim_create_autocmd("BufEnter", {
+            vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+                pattern = opts.pattern,
+                group = augroup,
+                callback = function()
+                    local _, error = pcall(vim.api.nvim_buf_get_var, 0, "luasnipI")
+
+                    if error then
+                        vim.api.nvim_buf_set_var(0, "luasnip1", true)
+
+                        vim.keymap.set(keymap[1], keymap[2], function()
+                            ls.snip_expand(snippet)
+                        end, { silent = true, buffer = true })
+                    end
+                end,
+            })
+
+            vim.api.nvim_create_autocmd({ "BufEnter" }, {
                 pattern = opts.pattern,
                 group = augroup,
                 callback = function()

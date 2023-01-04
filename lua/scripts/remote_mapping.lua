@@ -150,10 +150,11 @@ local function insert_empty_lines(count, add)
     vim.api.nvim_buf_set_lines(0, pos[1] + add, pos[1] + add, false, lines)
 end
 
-REMAP("n", "<Plug>L1 S, R1 U<Plug>", function()
+REMAP("n", "<Plug>L1 Z, R1 H<Plug>", function()
     insert_empty_lines(1, -1)
 end)
-REMAP("n", "<Plug>L1 S, R1 I<Plug>", function()
+
+REMAP("n", "<Plug>L1 Z, R1 L<Plug>", function()
     insert_empty_lines(1, 0)
 end)
 
@@ -162,6 +163,10 @@ end)
 REMAP("n", "<Plug>L1 D, L1 W<Plug>", "<cmd>q<cr>")
 REMAP("n", "<Plug>L1 V, L1 S<Plug>", "<cmd>vs<cr>")
 REMAP("n", "<Plug>L1 D, R1 P<Plug>", "dap")
+
+REMAP({ "n", "i", "x" }, "<Plug>L1 D, R1 J<Plug>", function()
+    feed("<ESC>")
+end)
 
 --------------------------------------------------------------------------------- Surround
 

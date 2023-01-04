@@ -4,6 +4,16 @@ return {
     dependencies = { { "nvim-lua/plenary.nvim" } },
     cmd = "Telescope",
     keys = {
+        -- Traditional Mappings
+        { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
+        { "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
+        {
+            "<C-f>",
+            "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+            desc = "Telescope current_buffer_fuzzy_find",
+        },
+
+        -- Remote Mappings
         {
             "<Plug>L1 E, R1 J<Plug>",
             "<cmd>Telescope find_files<cr>",
@@ -36,6 +46,9 @@ return {
             defaults = {
                 dynamic_preview_title = true,
                 mappings = {
+                    n = {
+                        ["<Esc>"] = actions.close,
+                    },
                     i = {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,

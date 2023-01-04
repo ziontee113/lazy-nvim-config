@@ -13,10 +13,12 @@ return {
             "<cmd>Telescope current_buffer_fuzzy_find<cr>",
             desc = "Telescope find_files",
         },
-        -- { "<leader>e", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
         { "<leader>g", "<cmd>Telescope grep_string<cr>", desc = "Telescope live_grep" },
         { "<leader>h", "<cmd>Telescope highlights<cr>", desc = "Telescope live_grep" },
         { "<leader>t", "<cmd>Telescope help_tags<cr>", desc = "Telescope live_grep" },
+
+        ---- Remote mappings
+        { "<Plug>L1 E, R1 J<Plug>", "<cmd>Telescope find_files<cr>", desc = "someting" },
     },
     config = function()
         local actions = require("telescope.actions")

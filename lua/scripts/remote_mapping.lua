@@ -8,16 +8,14 @@ local input = feed_keys_utilities.input
 
 USER_MAPPINGS = {}
 
-local map = function(mode, mapping, callback, opts)
+REMAP = function(mode, mapping, callback, opts)
     local modified_opts = opts or {}
-    modified_opts.silent = true
+    modified_opts.silent = modified_opts.silent or true
 
     vim.keymap.set(mode, mapping, callback, modified_opts)
 
-    local raw_mapping = mapping:gsub("<Plug>", ""):gsub("", "")
-
-    if not vim.tbl_contains(USER_MAPPINGS, raw_mapping) then
-        table.insert(USER_MAPPINGS, raw_mapping)
+    if not vim.tbl_contains(USER_MAPPINGS, mapping) then
+        table.insert(USER_MAPPINGS, mapping)
     end
 end
 
@@ -25,28 +23,28 @@ end
 
 PENDING_KEY_LITERAL = nil
 local literal_emitter_mapping = "R1 M, L1 A"
-map("i", "<Plug>" .. literal_emitter_mapping .. "", function()
+REMAP("i", "<Plug>" .. literal_emitter_mapping .. "<Plug>", function()
     if PENDING_KEY_LITERAL then
-        feed("<Plug>" .. PENDING_KEY_LITERAL .. "")
+        feed(PENDING_KEY_LITERAL)
     end
 end)
 
 --------------------------------------------------------------------------------- Find Brackets --- Feels kinda useless
 
-map({ "n", "x" }, "<Plug>L1 F, R1 J<Plug>", "/[{}]<cr>")
-map({ "n", "x" }, "<Plug>L1 F, R1 H<Plug>", "?[{}]<cr>")
+REMAP({ "n", "x" }, "<Plug>L1 F, R1 J<Plug>", "/[{}]<cr>")
+REMAP({ "n", "x" }, "<Plug>L1 F, R1 H<Plug>", "?[{}]<cr>")
 
-map({ "n", "x" }, "<Plug>L1 F, R1 L<Plug>", "?[()]<cr>")
-map({ "n", "x" }, "<Plug>L1 F, R1 K<Plug>", "/[()]<cr>")
+REMAP({ "n", "x" }, "<Plug>L1 F, R1 L<Plug>", "?[()]<cr>")
+REMAP({ "n", "x" }, "<Plug>L1 F, R1 K<Plug>", "/[()]<cr>")
 
-map({ "n", "x" }, "<Plug>L1 F, L1 Q<Plug>", [=[?['"]<cr>]=])
-map({ "n", "x" }, "<Plug>L1 F, L1 W<Plug>", [=[/['"]<cr>]=])
+REMAP({ "n", "x" }, "<Plug>L1 F, L1 Q<Plug>", [=[?['"]<cr>]=])
+REMAP({ "n", "x" }, "<Plug>L1 F, L1 W<Plug>", [=[/['"]<cr>]=])
 
 --------------------------------------------------------------------------------- Crazy Combos
 
-map("n", "<Plug>L1 D, R1 J, !L1 D, L1 Q<Plug>", "<cmd>vs<cr>") -- works
-map("n", "<Plug>[L1 D, L1 F], R1 J, !L1 F, !L1 D, L1 Q<Plug>", "<cmd>sp<cr>") -- also works
-map("n", "<Plug>[L1 D, L1 F], [R1 J, R1 K], !L1 F, L1 G<Plug>", function()
+REMAP("n", "<Plug>L1 D, R1 J, !L1 D, L1 Q<Plug>", "<cmd>vs<cr>") -- works
+REMAP("n", "<Plug>[L1 D, L1 F], R1 J, !L1 F, !L1 D, L1 Q<Plug>", "<cmd>sp<cr>") -- also works
+REMAP("n", "<Plug>[L1 D, L1 F], [R1 J, R1 K], !L1 F, L1 G<Plug>", function()
     print("Crazy In Love!")
 end) -- crazy!
 
@@ -71,7 +69,7 @@ local create_relative_jump_mappings = function()
 
     for count, key in ipairs(keys) do
         for _, mapping in ipairs({ "k", "j" }) do
-            map(
+            REMAP(
                 { "n", "x", "o" },
                 "<Plug>R1 " .. string.upper(mapping) .. ", L1 " .. key .. "<Plug>",
                 mark_and_input(count, mapping),
@@ -85,54 +83,78 @@ create_relative_jump_mappings()
 
 --------------------------------------------------------------------------------- mini.ai
 
-map("n", "<Plug>L1 C, L1 B<Plug>", "cib", { remap = true })
+REMAP("n", "<Plug>L1 C, L1 B<Plug>", "cib", { remap = true })
 
-map("n", "<Plug>L1 C, R1 J<Plug>", "ci{", { remap = true })
-map("n", "<Plug>L1 C, R1 J, R1 H<Plug>", "cil{", { remap = true })
-map("n", "<Plug>L1 C, R1 J, R1 K<Plug>", "cin{", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 J<Plug>", "ci{", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 J, R1 H<Plug>", "cil{", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 J, R1 K<Plug>", "cin{", { remap = true })
 
-map("n", "<Plug>L1 C, R1 K<Plug>", "ci(", { remap = true })
-map("n", "<Plug>L1 C, R1 K, R1 J<Plug>", "cil(", { remap = true })
-map("n", "<Plug>L1 C, R1 K, R1 L<Plug>", "cin(", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 K<Plug>", "ci(", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 K, R1 J<Plug>", "cil(", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 K, R1 L<Plug>", "cin(", { remap = true })
 
-map("n", "<Plug>L1 C, R1 H<Plug>", "ciq", { remap = true })
-map("n", "<Plug>L1 C, R1 H, R1 J<Plug>", "cilq", { remap = true })
-map("n", "<Plug>L1 C, R1 H, R1 K<Plug>", "cinq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H<Plug>", "ciq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 J<Plug>", "cilq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 K<Plug>", "cinq", { remap = true })
 
 --------------------------------------------------------------------------------- Select In Brackets
 
-map("n", "<Plug>L1 V, R1 J<Plug>", "vi{")
-map("n", "<Plug>L1 V, L1 A, R1 J<Plug>", "va{")
+REMAP("n", "<Plug>L1 V, R1 J<Plug>", "vi{")
+REMAP("n", "<Plug>L1 V, L1 A, R1 J<Plug>", "va{")
 
-map("n", "<Plug>L1 V, R1 K<Plug>", "vi(")
-map("n", "<Plug>L1 V, L1 A, R1 K<Plug>", "va(")
+REMAP("n", "<Plug>L1 V, R1 K<Plug>", "vi(")
+REMAP("n", "<Plug>L1 V, L1 A, R1 K<Plug>", "va(")
 
-map("n", "<Plug>L1 V, R1 H<Plug>", [[vi"]])
-map("n", "<Plug>L1 V, L1 A, R1 H<Plug>", [[va"]])
+REMAP("n", "<Plug>L1 V, R1 H<Plug>", [[viq]], { remap = true })
+REMAP("n", "<Plug>L1 V, L1 A, R1 H<Plug>", [[vaq]], { remap = true })
 
 --------------------------------------------------------------------------------- General
 
-map("n", "<Plug>L1 S, R1 O<Plug>", ":so<cr>")
-map("n", "<Plug>L1 D, L1 W<Plug>", "<cmd>q<cr>")
-map("n", "<Plug>L1 V, L1 S<Plug>", "<cmd>vs<cr>")
+local M = {}
+
+M.update_user_mappings_tbl = function()
+    local modes = { "n", "v", "V", "i", "s" }
+
+    for _, mode in ipairs(modes) do
+        local keymaps = vim.api.nvim_get_keymap(mode)
+
+        for _, keymap in ipairs(keymaps) do
+            local lhs = keymap.lhs
+            if string.find(lhs, "<Plug>") and not vim.tbl_contains(USER_MAPPINGS, lhs) then
+                table.insert(USER_MAPPINGS, lhs)
+            end
+        end
+    end
+end
+
+REMAP("n", "<Plug>L1 S, R1 O<Plug>", function()
+    vim.cmd("so")
+    M.update_user_mappings_tbl()
+end)
+
+REMAP("n", "<Plug>L1 D, L1 W<Plug>", "<cmd>q<cr>")
+REMAP("n", "<Plug>L1 V, L1 S<Plug>", "<cmd>vs<cr>")
+REMAP("n", "<Plug>L1 D, R1 P<Plug>", "dap")
 
 --------------------------------------------------------------------------------- Surround
 
-map("n", "<Plug>L1 S, R1 J<Plug>", "ysiw}", { remap = true })
-map("n", "<Plug>L1 S, R1 K<Plug>", "ysiw)", { remap = true })
+REMAP("n", "<Plug>L1 S, R1 J<Plug>", "ysiw}", { remap = true })
+REMAP("n", "<Plug>L1 S, R1 K<Plug>", "ysiw)", { remap = true })
 
 ---------------------------------------------------------------------------------
 
-local M = {}
-
 M.handle_remote_input = function(remote_input)
-    if vim.tbl_contains(USER_MAPPINGS, remote_input) then
-        input("<Plug>" .. remote_input .. "<Plug>")
+    local mapping = "<Plug>" .. remote_input .. "<Plug>"
+
+    if vim.tbl_contains(USER_MAPPINGS, mapping) then
+        input(mapping)
     end
 
     if remote_input ~= literal_emitter_mapping then
-        PENDING_KEY_LITERAL = remote_input
+        PENDING_KEY_LITERAL = mapping
     end
 end
+
+M.update_user_mappings_tbl()
 
 return M

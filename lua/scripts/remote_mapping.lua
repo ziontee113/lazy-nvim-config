@@ -94,8 +94,12 @@ REMAP("n", "<Plug>L1 C, R1 K, R1 J<Plug>", "cil(", { remap = true })
 REMAP("n", "<Plug>L1 C, R1 K, R1 L<Plug>", "cin(", { remap = true })
 
 REMAP("n", "<Plug>L1 C, R1 H<Plug>", "ciq", { remap = true })
-REMAP("n", "<Plug>L1 C, R1 H, R1 J<Plug>", "cilq", { remap = true })
-REMAP("n", "<Plug>L1 C, R1 H, R1 K<Plug>", "cinq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 J<Plug>", "cinq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 K<Plug>", "c2inq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 L<Plug>", "c3inq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 U<Plug>", "c3ilq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 I<Plug>", "c2ilq", { remap = true })
+REMAP("n", "<Plug>L1 C, R1 H, R1 O<Plug>", "c1ilq", { remap = true })
 
 --------------------------------------------------------------------------------- Select In Brackets
 
@@ -110,26 +114,9 @@ REMAP("n", "<Plug>L1 V, L1 A, R1 H<Plug>", [[vaq]], { remap = true })
 
 --------------------------------------------------------------------------------- Update User Mapping
 
-local M = {}
-
-M.update_user_mappings_tbl = function()
-    local modes = { "n", "v", "V", "i", "s" }
-
-    for _, mode in ipairs(modes) do
-        local keymaps = vim.api.nvim_get_keymap(mode)
-
-        for _, keymap in ipairs(keymaps) do
-            local lhs = keymap.lhs
-            if string.find(lhs, "<Plug>") and not vim.tbl_contains(USER_MAPPINGS, lhs) then
-                table.insert(USER_MAPPINGS, lhs)
-            end
-        end
-    end
-end
-
 REMAP("n", "<Plug>L1 S, R1 O<Plug>", function()
     vim.cmd("so")
-    M.update_user_mappings_tbl()
+    require("scripts.update_user_mapping").update_user_mappings_tbl()
 end)
 
 --------------------------------------------------------------------------------- Delete
@@ -174,6 +161,8 @@ REMAP("n", "<Plug>L1 S, R1 J<Plug>", "ysiw}", { remap = true })
 REMAP("n", "<Plug>L1 S, R1 K<Plug>", "ysiw)", { remap = true })
 
 ---------------------------------------------------------------------------------
+
+local M = {}
 
 M.handle_remote_input = function(remote_input)
     local mapping = "<Plug>" .. remote_input .. "<Plug>"

@@ -103,7 +103,7 @@ return {
                         workspace = {
                             -- Make the server aware of Neovim runtime files
                             library = {
-                                -- "/home/ziontee113/.config/nvim-custom-plugin/zion-kit/",
+                                "/home/ziontee113/.config/nvim-custom-plugin/zion-kit/",
                             },
                         },
                         telemetry = {

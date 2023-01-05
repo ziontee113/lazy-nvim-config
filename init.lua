@@ -37,9 +37,9 @@ require("globals")
 require("scripts.tcp")
 
 ---- dev
-vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/amalgam-tree-surfer/]])
-require("amalgam-tree-surfer")
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/zion-kit/]])
+require("zion-kit")
 
 vim.keymap.set("n", "R", function()
-    RELOAD("amalgam-tree-surfer")
+    RELOAD("zion-kit")
 end, {})

@@ -1,3 +1,11 @@
+-- Switch Tab
+vim.keymap.set("n", "zp", function()
+    vim.cmd("tabprev")
+end, {})
+vim.keymap.set("n", "zn", function()
+    vim.cmd("tabnext")
+end, {})
+
 -- Jump list relative line jump
 vim.keymap.set("n", "j", [[(v:count > 1 ? "m'" . v:count : '') . 'j']], { expr = true })
 vim.keymap.set("n", "k", [[(v:count > 1 ? "m'" . v:count : '') . 'k']], { expr = true })

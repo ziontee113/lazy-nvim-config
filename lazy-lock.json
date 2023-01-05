@@ -29,6 +29,7 @@
   "playground": { "branch": "master", "commit": "8a887bcf66017bd775a0fb19c9d8b7a4d6759c48" },
   "plenary.nvim": { "branch": "master", "commit": "4b7e52044bbb84242158d977a50c4cbcd85070c7" },
   "sj.nvim": { "branch": "main", "commit": "2e06233c2076390d6f9dab0f166667e8703a59c6" },
+  "tabby.nvim": { "branch": "main", "commit": "187b604da1a6452c700ce21fdf340ffbea956298" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "0b1c41ad8052badca6e72eafa4bc5481152e483e" },
   "toggleterm.nvim": { "branch": "main", "commit": "b02a1674bd0010d7982b056fd3df4f717ff8a57a" },
   "undotree": { "branch": "search", "commit": "dc1fc3bb09ad9544c9ce23378f028c056caa2597" },

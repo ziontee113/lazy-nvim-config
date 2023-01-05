@@ -4,6 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
         "rouge8/neotest-rust",
+        "nvim-neotest/neotest-plenary",
     },
     keys = {
         { "tu", mode = "n" },
@@ -19,6 +20,11 @@ return {
                 require("neotest-rust")({
                     args = { "--no-capture" },
                 }),
+                require("neotest-plenary"),
+            },
+            quickfix = {
+                enabled = false,
+                open = false,
             },
         })
 

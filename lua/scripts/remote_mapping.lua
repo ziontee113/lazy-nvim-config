@@ -155,10 +155,19 @@ REMAP({ "n", "i", "x" }, "<Plug>L1 D, R1 J<Plug>", function()
     feed("<ESC>")
 end)
 
+--------------------------------------------------------------------------------- Visual Selection
+
+REMAP({ "n", "x" }, "<Plug>L1 V, R1 L<Plug>", "V")
+
 --------------------------------------------------------------------------------- Surround
+
+REMAP("n", "<Plug>L1 S, L1 C, R1 J<Plug>", "cs)}", { remap = true })
+REMAP("n", "<Plug>L1 S, L1 C, R1 K<Plug>", "cs})", { remap = true })
 
 REMAP("n", "<Plug>L1 S, R1 J<Plug>", "ysiw}", { remap = true })
 REMAP("n", "<Plug>L1 S, R1 K<Plug>", "ysiw)", { remap = true })
+REMAP("n", "<Plug>L1 S, R1 H<Plug>", 'ysiw"', { remap = true })
+REMAP("n", "<Plug>L1 S, R1 L<Plug>", 'ysiw"', { remap = true })
 
 ---------------------------------------------------------------------------------
 

@@ -35,3 +35,11 @@ require("globals")
 
 ---- remote mapping
 require("scripts.tcp")
+
+---- dev
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/amalgam-tree-surfer/]])
+require("amalgam-tree-surfer")
+
+vim.keymap.set("n", "R", function()
+    RELOAD("amalgam-tree-surfer")
+end, {})

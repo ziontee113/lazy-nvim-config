@@ -101,6 +101,8 @@ REMAP("n", "<Plug>L1 C, R1 H, R1 U<Plug>", "c3ilq", { remap = true })
 REMAP("n", "<Plug>L1 C, R1 H, R1 I<Plug>", "c2ilq", { remap = true })
 REMAP("n", "<Plug>L1 C, R1 H, R1 O<Plug>", "c1ilq", { remap = true })
 
+REMAP("n", "<Plug>L1 C, R1 O<Plug>", "ciw")
+
 --------------------------------------------------------------------------------- Select In Brackets
 
 REMAP("n", "<Plug>L1 V, R1 J<Plug>", "vi{")

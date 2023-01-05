@@ -5,6 +5,9 @@ return {
     {
         "tpope/vim-fugitive",
         cmd = { "G", "GBrowse" },
+        keys = {
+            { "<Plug>L1 G, L1 A<Plug>", "<cmd>G add .<cr>" },
+        },
         dependencies = {
             "tpope/vim-rhubarb",
         },

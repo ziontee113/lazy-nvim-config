@@ -58,6 +58,7 @@ return {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
                         ["<C-l>"] = actions.select_default,
+                        ["<Plug>L1 D, R1 L<Plug>"] = actions.file_tab,
                     },
                 },
             },

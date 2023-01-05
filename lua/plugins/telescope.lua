@@ -39,6 +39,11 @@ return {
             "<cmd>Telescope live_grep<cr>",
             desc = "Telescope live_grep",
         },
+        {
+            "<Plug>L1 E, R1 O<Plug>",
+            "<cmd>Telescope oldfiles<cr>",
+            desc = "Telescope oldfiles",
+        },
     },
     config = function()
         local actions = require("telescope.actions")

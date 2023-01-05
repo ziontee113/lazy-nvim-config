@@ -169,6 +169,10 @@ REMAP("n", "<Plug>L1 S, R1 K<Plug>", "ysiw)", { remap = true })
 REMAP("n", "<Plug>L1 S, R1 H<Plug>", 'ysiw"', { remap = true })
 REMAP("n", "<Plug>L1 S, R1 L<Plug>", 'ysiw"', { remap = true })
 
+--------------------------------------------------------------------------------- TSPlayground
+
+REMAP("n", "<Plug>L1 E, R1 P<Plug>", "<cmd>TSPlaygroundToggle<cr>")
+
 ---------------------------------------------------------------------------------
 
 local M = {}

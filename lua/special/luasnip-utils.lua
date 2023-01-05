@@ -37,16 +37,6 @@ function M.create_snippet(opts)
                     end
                 end,
             })
-
-            vim.api.nvim_create_autocmd({ "BufEnter" }, {
-                pattern = opts.pattern,
-                group = augroup,
-                callback = function()
-                    vim.keymap.set(keymap[1], keymap[2], function()
-                        ls.snip_expand(snippet)
-                    end, { silent = true, buffer = true })
-                end,
-            })
         end
     end
 

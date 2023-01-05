@@ -21,6 +21,48 @@ just testing {}
     keymaps = { "<C-t>t" },
 })
 
+-- ==== Plenary Testing ==== --
+
+-- describe
+cs({
+    trigger = "_trigger",
+    nodes = fmt(
+        [=[
+describe("{}", function()
+    it("{}", function()
+        {}
+    end)
+end)
+]=],
+        {
+            i(1, ""),
+            i(2, ""),
+            i(3, ""),
+        }
+    ),
+    target_table = snippets,
+    pattern = { "*_spec.lua" },
+    keymaps = { "<C-k><C-k>" },
+})
+
+cs({
+    trigger = "_trigger",
+    nodes = fmt(
+        [=[
+it("{}", function()
+    {}
+end)
+]=],
+        {
+            i(1, ""),
+            i(2, ""),
+        }
+    ),
+    target_table = snippets,
+    pattern = { "*_spec.lua" },
+    keymaps = { "<C-j><C-k>" },
+})
+
 -- ==== Comments ==== --
 cs({
     trigger = "todo",

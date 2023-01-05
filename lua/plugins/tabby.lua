@@ -2,8 +2,6 @@ return {
     "nanozuki/tabby.nvim",
     event = "VeryLazy",
     config = function()
-        vim.o.showtabline = 2
-
         local tabLineFill = { fg = "#f2e9de", bg = "#000000", style = "italic" }
         local tabLine = { fg = "#f2e9de", bg = "#000000", style = "italic" }
         local tabLineSel = { fg = "#f2e9de", bg = "#333333", style = "italic" }
@@ -23,6 +21,12 @@ return {
                     -- line.sep("", theme.head, theme.fill),
                 },
                 line.tabs().foreach(function(tab)
+                    if #vim.api.nvim_list_tabpages() == 1 then
+                        vim.o.showtabline = 0
+                    else
+                        vim.o.showtabline = 2
+                    end
+
                     local hl = tab.is_current() and theme.current_tab or theme.tab
                     return {
                         line.sep("", hl, theme.fill),

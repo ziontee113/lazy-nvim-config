@@ -35,6 +35,10 @@ function M.create_snippet(opts)
                             ls.snip_expand(snippet)
                         end, { silent = true, buffer = true })
                     end
+
+                    if not vim.tbl_contains(USER_MAPPINGS, keymap[2]) then
+                        table.insert(USER_MAPPINGS, keymap[2])
+                    end
                 end,
             })
         end

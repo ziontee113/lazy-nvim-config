@@ -4,6 +4,7 @@ local snippets, autosnippets = {}, {}
 local luasnip_utils = require("special.luasnip-utils")
 local cs = luasnip_utils.create_snippet
 local tsn = luasnip_utils.tsn
+local pattern = "*.lua"
 
 -- ==== Testing tn (Treesitter Node) ==== --
 cs({
@@ -76,7 +77,7 @@ cs({
         }
     ),
     target_table = snippets,
-    pattern = { "*.lua" },
+    pattern = { pattern },
     keymaps = { "<a-,>" },
 })
 
@@ -513,12 +514,12 @@ c({}, {{ {} }}),
 local createLuaSnippet_keymaps_fmt = fmt(
     [[
 target_table = {},
-  pattern = {{ "{}" }},
+  pattern = {{ {} }},
   keymaps = {{ {} }},
   ]],
     {
         c(1, { t("snippets"), t("autosnippets") }),
-        sn(2, { t("*."), i(1, "") }),
+        c(2, { i(1, "pattern"), sn(1, { t('*."'), i(1, '"') }) }),
         i(3, ""),
     }
 )

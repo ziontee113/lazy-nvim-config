@@ -103,6 +103,13 @@ return {
                     }),
                     ["<CR>"] = cmp.mapping.confirm({ select = false }),
                     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                    -- [""] = cmp.mapping.complete({
+                    --     config = {
+                    --         sources = {
+                    --             { name = "nvim_lsp" },
+                    --         },
+                    --     },
+                    -- }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()

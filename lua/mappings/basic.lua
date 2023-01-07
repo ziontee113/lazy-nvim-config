@@ -7,8 +7,8 @@ vim.keymap.set("n", "zn", function()
 end, {})
 
 -- Jump list relative line jump
-vim.keymap.set("n", "j", [[(v:count > 1 ? "m'" . v:count : '') . 'j']], { expr = true })
-vim.keymap.set("n", "k", [[(v:count > 1 ? "m'" . v:count : '') . 'k']], { expr = true })
+vim.keymap.set("n", "j", [[(v:count > 1 ? "m'" . v:count : '') . 'gj']], { expr = true })
+vim.keymap.set("n", "k", [[(v:count > 1 ? "m'" . v:count : '') . 'gk']], { expr = true })
 
 -- Select word under cursor
 vim.keymap.set("n", "vv", "viw", {})
@@ -61,41 +61,89 @@ vim.keymap.set("n", "<F11>", function()
     end
 end)
 
---- testing
+-- "keep the visually selected area when indenting"
+vim.keymap.set("x", "<", "<gv")
+vim.keymap.set("x", ">", ">gv")
 
-vim.keymap.set("n", "<S-CR>", function()
-    print("ok shift-enter")
-end, {})
-vim.keymap.set("n", "<C-CR>", function()
-    print("ok ctrl-enter")
-end, {})
+vim.keymap.set("n", "g=", "gg=Gg``")
+vim.keymap.set("n", "<C-e>", "2<C-e>")
+vim.keymap.set("n", "<C-y>", "2<C-y>")
 
-vim.keymap.set("n", "<C-1>", function()
-    print("ok C-1")
-end, {})
+-- "auto re-centre when moving around"
+vim.keymap.set("n", "G", "Gzz")
+vim.keymap.set("n", "g;", "m'g;zz")
+vim.keymap.set("n", "g,", "m'g,zz")
 
-vim.keymap.set("n", "<C-.>", function()
-    print("ok C-.")
-end, {})
-vim.keymap.set("n", "<C-,>", function()
-    print("ok C-,")
-end, {})
-vim.keymap.set("n", "<C-;>", function()
-    print("ok C-;")
-end, {})
+vim.keymap.set("x", "p", '"_dP')
 
-vim.keymap.set("n", "<C-M>", function()
-    print("ok C-M")
-end, {})
+vim.keymap.set("n", "<leader>gw", ":silent lgrep <word> % <CR>")
 
-vim.keymap.set("n", "<CR>", function()
-    print("ok single enter")
-end, {})
+-- spelling
+vim.keymap.set("n", "<leader>sp", function()
+    vim.wo.spell = not vim.wo.spell
+end)
+vim.keymap.set("n", "<leader>sf", function()
+    local spell = vim.wo.spell
+    vim.wo.spell = true
+    vim.api.nvim_input("[s1z=``")
+    vim.schedule(function()
+        vim.wo.spell = spell
+    end)
+end)
 
-vim.keymap.set("n", "<C-i>", "<C-i>", {})
+vim.keymap.set("n", "<leader>hh", ":h <CR>")
+vim.keymap.set("x", "<leader>hh", 'y:h "<CR>')
 
-vim.keymap.set("n", "<Tab>", function()
-    print("ok mate")
-end, {})
+vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>")
+
+vim.keymap.set("n", "cn", "*``cgn")
+vim.keymap.set("x", "C", function()
+    vim.api.nvim_input('y/"<CR>Ncgn')
+end, { silent = true })
+
+-- Make the last change as an initiation for cgn.
+vim.keymap.set("n", "g.", [[/\V<C-r>"<CR>cgn<C-a><Esc>]])
+
+--
+vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>")
+vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>")
+vim.keymap.set("i", "<M-e>", "<C-g>u<C-o>D")
+vim.keymap.set("i", "<M-a>", "<C-g>u<C-o>de")
+
+local keys = { ".", ";", "," }
+for _, key in ipairs(keys) do
+    vim.keymap.set("i", key, key .. "<C-g>u")
+end
+
+-- Command Mode
+vim.keymap.set("c", "<M-a>", "<home>")
+vim.keymap.set("c", "<M-e>", "<end>")
+
+-- Exchange windows
+vim.keymap.set("n", "<C-w>y", function()
+    local window = vim.api.nvim_win_get_number(0)
+    local buffer = vim.api.nvim_buf_get_number(0)
+    vim.keymap.set("n", "<C-w>x", function()
+        local view = vim.fn.winsaveview()
+        local cur_buf = vim.api.nvim_buf_get_number(0)
+        local cur_win = vim.api.nvim_win_get_number(0)
+        vim.cmd.buffer(buffer)
+        vim.api.nvim_command(tostring(window) .. "wincmd w")
+        vim.cmd.buffer(cur_buf)
+        vim.api.nvim_command(tostring(cur_win) .. "wincmd w")
+        vim.fn.winrestview(view)
+        vim.keymap.del("n", "<C-w>x")
+    end)
+end)
+
+vim.keymap.set("n", "<leader>ch", function()
+    local height = vim.opt.cmdheight:get()
+    if height == 0 then
+        height = 1
+    else
+        height = 0
+    end
+    vim.opt.cmdheight = height
+end)
 
 -- {{{nvim-execute-on-save}}}

@@ -1,15 +1,24 @@
 return {
-    "echasnovski/mini.nvim",
-    event = "VeryLazy",
-    config = function()
-        require("mini.ai").setup()
-        require("mini.comment").setup({
-            mappings = {
-                textobject = "ic",
-            },
-        })
-
-        vim.keymap.set("n", "", "gcc", { remap = true })
-        vim.keymap.set("x", "", "gc", { remap = true })
-    end,
+    {
+        "echasnovski/mini.ai",
+        config = function()
+            require("mini.ai").setup()
+        end,
+    },
+    {
+        "echasnovski/mini.comment",
+        keys = {
+            { mode = "n", "gc" },
+            { mode = "x", "gc" },
+            { mode = "n", "", "gcc", remap = true },
+            { mode = "x", "", "gc", remap = true },
+        },
+        config = function()
+            require("mini.comment").setup({
+                mappings = {
+                    textobject = "ic",
+                },
+            })
+        end,
+    },
 }

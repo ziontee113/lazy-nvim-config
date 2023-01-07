@@ -6,6 +6,7 @@ return {
             "nvim-treesitter/playground",
             "windwp/nvim-ts-autotag",
             "p00f/nvim-ts-rainbow",
+            "nvim-treesitter/nvim-treesitter-textobjects",
         },
         event = "BufReadPost",
         -- event = { "VeryLazy" },
@@ -28,6 +29,23 @@ return {
 
                 autotag = {
                     enable = true,
+                },
+
+                textobjects = {
+                    select = {
+                        enable = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["am"] = "@call.outer",
+                            ["im"] = "@call.inner",
+                            ["ab"] = "@block.outer",
+                            ["ib"] = "@block.inner",
+                            ["aa"] = "@parameter.outer",
+                            ["ia"] = "@parameter.inner",
+                            ["as"] = "@statement.outer",
+                        },
+                    },
                 },
 
                 playground = {

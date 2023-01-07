@@ -61,4 +61,41 @@ vim.keymap.set("n", "<F11>", function()
     end
 end)
 
+--- testing
+
+vim.keymap.set("n", "<S-CR>", function()
+    print("ok shift-enter")
+end, {})
+vim.keymap.set("n", "<C-CR>", function()
+    print("ok ctrl-enter")
+end, {})
+
+vim.keymap.set("n", "<C-1>", function()
+    print("ok C-1")
+end, {})
+
+vim.keymap.set("n", "<C-.>", function()
+    print("ok C-.")
+end, {})
+vim.keymap.set("n", "<C-,>", function()
+    print("ok C-,")
+end, {})
+vim.keymap.set("n", "<C-;>", function()
+    print("ok C-;")
+end, {})
+
+vim.keymap.set("n", "<C-M>", function()
+    print("ok C-M")
+end, {})
+
+vim.keymap.set("n", "<CR>", function()
+    print("ok single enter")
+end, {})
+
+vim.keymap.set("n", "<C-i>", "<C-i>", {})
+
+vim.keymap.set("n", "<Tab>", function()
+    print("ok mate")
+end, {})
+
 -- {{{nvim-execute-on-save}}}

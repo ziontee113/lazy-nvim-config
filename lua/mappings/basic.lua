@@ -59,29 +59,32 @@ vim.keymap.set("n", "<F11>", function()
     else
         vim.o.cmdheight = 0
     end
-end)
+end, { desc = "toggle cmdheiht" })
+
+------------------------------------------------------ Arsham's Mappings
 
 -- "keep the visually selected area when indenting"
-vim.keymap.set("x", "<", "<gv")
-vim.keymap.set("x", ">", ">gv")
+vim.keymap.set("x", "<", "<gv", { desc = "keep Visual Mode when <" })
+vim.keymap.set("x", ">", ">gv", { desc = "keep Visual Mode when >" })
 
-vim.keymap.set("n", "g=", "gg=Gg``")
+vim.keymap.set("n", "g=", "gg=Gg``", { desc = "re-indent entire buffer" })
 vim.keymap.set("n", "<C-e>", "2<C-e>")
 vim.keymap.set("n", "<C-y>", "2<C-y>")
 
 -- "auto re-centre when moving around"
 vim.keymap.set("n", "G", "Gzz")
-vim.keymap.set("n", "g;", "m'g;zz")
-vim.keymap.set("n", "g,", "m'g,zz")
+vim.keymap.set("n", "g;", "m'g;zz", { desc = "next position in change list" })
+vim.keymap.set("n", "g,", "m'g,zz", { desc = "prev position in change list" })
 
-vim.keymap.set("x", "p", '"_dP')
+vim.keymap.set("x", "p", '"_dP', { desc = "don't replace register when pasting" })
 
+-- Local List related
 vim.keymap.set("n", "<leader>gw", ":silent lgrep <word> % <CR>")
 
 -- spelling
 vim.keymap.set("n", "<leader>sp", function()
     vim.wo.spell = not vim.wo.spell
-end)
+end, { desc = "toggle spelling" })
 vim.keymap.set("n", "<leader>sf", function()
     local spell = vim.wo.spell
     vim.wo.spell = true
@@ -89,12 +92,11 @@ vim.keymap.set("n", "<leader>sf", function()
     vim.schedule(function()
         vim.wo.spell = spell
     end)
-end)
+end, { desc = "fix spelling" })
 
+-- show help tags under cursor or visual selection
 vim.keymap.set("n", "<leader>hh", ":h <CR>")
 vim.keymap.set("x", "<leader>hh", 'y:h "<CR>')
-
--- vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>")
 
 vim.keymap.set("n", "cn", "*``cgn")
 vim.keymap.set("x", "Cn", function()
@@ -104,7 +106,7 @@ end, { silent = true })
 -- Make the last change as an initiation for cgn.
 vim.keymap.set("n", "g.", [[/\V<C-r>"<CR>cgn<C-a><Esc>]])
 
---
+-- Insert mode enhancements
 vim.keymap.set("i", "<C-u>", "<C-g>u<C-u>")
 vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>")
 vim.keymap.set("i", "<M-e>", "<C-g>u<C-o>D")
@@ -133,8 +135,8 @@ vim.keymap.set("n", "<C-w>y", function()
         vim.api.nvim_command(tostring(cur_win) .. "wincmd w")
         vim.fn.winrestview(view)
         vim.keymap.del("n", "<C-w>x")
-    end)
-end)
+    end, { desc = "swap picked window" })
+end, { desc = "choose window to swap back to when pressing <C-w>x" })
 
 vim.keymap.set("n", "<leader>ch", function()
     local height = vim.opt.cmdheight:get()
@@ -144,11 +146,11 @@ vim.keymap.set("n", "<leader>ch", function()
         height = 0
     end
     vim.opt.cmdheight = height
-end)
+end, { desc = "toggle cmdheight" })
 
 vim.keymap.set("n", "<leader>sb", function()
     vim.opt_local.scrollbind = not vim.opt_local.scrollbind:get()
-end)
+end, { desc = "scrollbind current window" })
 
 vim.keymap.set("x", "/", "<Esc>/\\%V", { desc = "Search in visually selected region" })
 

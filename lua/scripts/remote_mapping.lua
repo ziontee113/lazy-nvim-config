@@ -174,12 +174,14 @@ REMAP("n", "<Plug>L1 S, R1 L<Plug>", 'ysiw"', { remap = true })
 --------------------------------------------------------------------------------- Stuff
 
 REMAP("n", "<Plug>L1 A, R1 L<Plug>", function()
-    feed("<A-l><A-S-O>")
+    vim.cmd("keepjumps normal! }")
+    feed("<A-S-O>")
     feed("<Esc>o")
 end, { remap = true })
 REMAP("n", "<Plug>L1 A, R1 H<Plug>", function()
-    feed("<A-h><A-S-o>")
-    feed("<Esc>O")
+    vim.cmd("keepjumps normal! {")
+    feed("<A-S-o>")
+    feed("<Esc>o")
 end, { remap = true })
 
 --------------------------------------------------------------------------------- TSPlayground

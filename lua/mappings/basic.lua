@@ -94,10 +94,10 @@ end)
 vim.keymap.set("n", "<leader>hh", ":h <CR>")
 vim.keymap.set("x", "<leader>hh", 'y:h "<CR>')
 
-vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>")
+-- vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>")
 
 vim.keymap.set("n", "cn", "*``cgn")
-vim.keymap.set("x", "C", function()
+vim.keymap.set("x", "Cn", function()
     vim.api.nvim_input('y/"<CR>Ncgn')
 end, { silent = true })
 
@@ -145,5 +145,11 @@ vim.keymap.set("n", "<leader>ch", function()
     end
     vim.opt.cmdheight = height
 end)
+
+vim.keymap.set("n", "<leader>sb", function()
+    vim.opt_local.scrollbind = not vim.opt_local.scrollbind:get()
+end)
+
+vim.keymap.set("x", "/", "<Esc>/\\%V", { desc = "Search in visually selected region" })
 
 -- {{{nvim-execute-on-save}}}

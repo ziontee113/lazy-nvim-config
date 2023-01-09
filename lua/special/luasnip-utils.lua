@@ -36,9 +36,9 @@ function M.create_snippet(opts)
                         end, { silent = true, buffer = true })
                     end
 
-                    if not vim.tbl_contains(USER_MAPPINGS, keymap[2]) then
-                        table.insert(USER_MAPPINGS, keymap[2])
-                    end
+                    -- if not vim.tbl_contains(USER_MAPPINGS, keymap[2]) then
+                    --     table.insert(USER_MAPPINGS, keymap[2])
+                    -- end
                 end,
             })
         end

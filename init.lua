@@ -35,12 +35,12 @@ require("settings.transparent")
 require("globals")
 
 ---- remote mapping
-require("scripts.tcp")
+-- require("scripts.tcp")
 
 ---- dev
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/zion-kit/]])
 require("zion-kit")
 
 vim.keymap.set("n", "R", function()
-    RELOAD("zion-kit")
+    R("zion-kit")
 end, {})

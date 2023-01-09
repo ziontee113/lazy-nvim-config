@@ -18,6 +18,10 @@ return {
                 query = {
                     [[
                         ;; query
+                        (((attribute_item) @attr (function_item) @cap (#vim-match? @attr "test")))
+                    ]],
+                    [[
+                        ;; query
                         (enum_item (type_identifier) @cap)
                         (trait_item (type_identifier) @cap)
                         (struct_item (type_identifier) @cap)
@@ -27,7 +31,7 @@ return {
                         (mod_item (identifier) @cap)
                         (macro_definition (identifier) @cap)
                         ]],
-                    1,
+                    2,
                 },
                 regex = {},
                 search_patterns = {

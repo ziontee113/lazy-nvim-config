@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<C-p>", ":G push", { buffer = 0 })
+vim.keymap.set("n", "<C-p>", ":G push<CR>", { buffer = 0 })
 vim.keymap.set("n", "q", ":q<cr>", { buffer = 0 })
 
 -- Staging Remaps

@@ -10,7 +10,6 @@ return {
     },
     cmd = "Telescope",
     keys = {
-        -- Traditional Mappings
         { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
         { "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
         {
@@ -18,37 +17,10 @@ return {
             "<cmd>Telescope current_buffer_fuzzy_find<cr>",
             desc = "Telescope current_buffer_fuzzy_find",
         },
-
-        -- Remote Mappings
         {
-            "<Plug>L1 E, R1 J<Plug>",
-            "<cmd>Telescope find_files<cr>",
-            desc = "Telescope find_files",
-        },
-        {
-            "<Plug>L1 E, R1 H<Plug>",
-            "<cmd>Telescope help_tags<cr>",
-            desc = "Telescope help_tags",
-        },
-        {
-            "<Plug>L1 E, R1 H, R1 I<Plug>",
-            "<cmd>Telescope highlights<cr>",
-            desc = "Telescope highlights",
-        },
-        {
-            "<Plug>L1 E, L1 F<Plug>",
-            "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-            desc = "Telescope current_buffer_fuzzy_find",
-        },
-        {
-            "<Plug>L1 E, L1 G<Plug>",
-            "<cmd>Telescope live_grep<cr>",
-            desc = "Telescope live_grep",
-        },
-        {
-            "<Plug>L1 E, R1 O<Plug>",
-            "<cmd>Telescope oldfiles<cr>",
-            desc = "Telescope oldfiles",
+            "<C-;>",
+            "<cmd>Telescope file_browser<cr>",
+            desc = "Telescope file_browser",
         },
     },
     config = function()
@@ -67,6 +39,31 @@ return {
                         ["<Plug>L1 D, R1 L<Plug>"] = actions.file_tab,
                     },
                 },
+                -- copied from https://github.com/NvChad/NvChad/blob/main/lua/plugins/configs/telescope.lua
+                prompt_prefix = "   ",
+                selection_caret = "  ",
+                entry_prefix = "  ",
+                initial_mode = "insert",
+                selection_strategy = "reset",
+                sorting_strategy = "ascending",
+                layout_strategy = "horizontal",
+                layout_config = {
+                    horizontal = {
+                        prompt_position = "top",
+                        preview_width = 0.55,
+                        results_width = 0.8,
+                    },
+                    vertical = {
+                        mirror = false,
+                    },
+                    width = 0.87,
+                    height = 0.80,
+                    preview_cutoff = 120,
+                },
+                -- thicker borders
+                winblend = 0,
+                border = {},
+                borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
             },
             pickers = {
                 find_files = {
@@ -82,7 +79,6 @@ return {
                 },
                 file_browser = {
                     theme = "ivy",
-                    -- disables netrw and use telescope-file-browser in its place
                     hijack_netrw = true,
                     mappings = {
                         ["i"] = {
@@ -96,7 +92,9 @@ return {
             },
         })
 
-        require("telescope").load_extension("undo")
-        require("telescope").load_extension("file_browser")
+        local extensions = { "undo", "file_browser" }
+        for _, e in ipairs(extensions) do
+            require("telescope").load_extension(e)
+        end
     end,
 }

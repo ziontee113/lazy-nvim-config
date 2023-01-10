@@ -17,12 +17,12 @@ return {
             [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
         },
         {
-            mode = "v",
+            mode = "x",
             "<leader>rv",
             [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
         },
         {
-            mode = "v",
+            mode = "x",
             "<leader>ri",
             [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
         },

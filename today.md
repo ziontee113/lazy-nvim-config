@@ -1,9 +1,16 @@
 # What am I gonna do today?
 
-- Rework Kluster. Somehow make it feel great to use with Vim.
-
-
 - Better LuaSnip utils.
 
-
 - DONE - Move to next Treesitter-ed node.
+
+# What I've enjoyed this week:
+
+## Neovim Related
+- refactoring.nvim, in Lua specifically.
+- telescope file-browser is exellent.
+- NvChad's telescope layout_config makes my Telescope experience better.
+- Added some mappings for vim-fugitive.
+
+## Keyboard Related
+- Using a keyboard as an arm rest.

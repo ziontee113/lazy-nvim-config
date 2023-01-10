@@ -1,12 +1,22 @@
-vim.keymap.set("n", "<C-9>", "<cmd>G<cr>")
-vim.keymap.set("n", "gl", "<cmd>G log<cr>")
+local function fugitive_mapping(mapping, cmd)
+    vim.keymap.set("n", mapping, function()
+        local old_height = vim.o.cmdheight
+        vim.o.cmdheight = 1
+        vim.cmd(cmd)
+        vim.o.cmdheight = old_height
+    end, {})
+end
+
+fugitive_mapping("<leader>gc", "G commit")
+fugitive_mapping("<leader>ga", "G add .")
 
 return {
     {
         "tpope/vim-fugitive",
         cmd = { "G", "GBrowse" },
         keys = {
-            { "<Plug>L1 G, L1 A<Plug>", "<cmd>G add .<cr>" },
+            { "<C-9", "<cmd>G<cr>" },
+            { "gl", "<cmd>G log<cr>" },
         },
         dependencies = {
             "tpope/vim-rhubarb",

@@ -18,7 +18,7 @@ return {
         "tpope/vim-fugitive",
         cmd = { "G", "GBrowse" },
         keys = {
-            { "<C-9", "<cmd>G<cr>" },
+            { "<C-9>", "<cmd>G<cr>" },
             { "gl", "<cmd>G log<cr>" },
         },
         dependencies = {

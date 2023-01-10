@@ -503,3 +503,5 @@ fn {}({}: {}) -> {} {{
     pattern = { "*.rs" },
     keymaps = { "<C-K>f" },
 })
+
+return snippets, autosnippets

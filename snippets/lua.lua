@@ -558,3 +558,5 @@ cs({
     pattern = { "*/snippets/*.lua" },
     keymaps = { "<C-K>c", "<C-J>cs" },
 })
+
+return snippets, autosnippets

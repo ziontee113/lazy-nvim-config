@@ -99,7 +99,7 @@ vim.keymap.set("n", "<leader>hh", ":h <CR>")
 vim.keymap.set("x", "<leader>hh", 'y:h "<CR>')
 
 vim.keymap.set("n", "cn", "*``cgn")
-vim.keymap.set("x", "Cn", function()
+vim.keymap.set("x", "C", function()
     vim.api.nvim_input('y/"<CR>Ncgn')
 end, { silent = true })
 

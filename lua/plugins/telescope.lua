@@ -22,10 +22,26 @@ return {
             "<cmd>Telescope file_browser<cr>",
             desc = "Telescope file_browser",
         },
+        {
+            "<leader>he",
+            "<cmd>Telescope help_tags<cr>",
+            desc = "Telescope help_tags",
+        },
+        {
+            "-",
+            "<cmd>Telescope help_tags<cr>",
+            desc = "Telescope help_tags",
+        },
+        {
+            "<leader>hi",
+            "<cmd>Telescope highlights<cr>",
+            desc = "Telescope highlights",
+        },
     },
     config = function()
+        local telescope = require("telescope")
         local actions = require("telescope.actions")
-        require("telescope").setup({
+        telescope.setup({
             defaults = {
                 dynamic_preview_title = true,
                 mappings = {
@@ -83,6 +99,8 @@ return {
                     mappings = {
                         ["i"] = {
                             -- your custom insert mode mappings
+                            ["<A-a>"] = telescope.extensions.file_browser.actions.create,
+                            ["<C-t>"] = actions.file_tab,
                         },
                         ["n"] = {
                             -- your custom normal mode mappings
@@ -94,7 +112,7 @@ return {
 
         local extensions = { "undo", "file_browser" }
         for _, e in ipairs(extensions) do
-            require("telescope").load_extension(e)
+            telescope.load_extension(e)
         end
     end,
 }

@@ -9,6 +9,8 @@ end
 
 fugitive_mapping("<leader>gc", "G commit")
 fugitive_mapping("<leader>ga", "G add .")
+fugitive_mapping("<leader>gp", "G pull")
+fugitive_mapping("<leader>gP", "G push")
 
 return {
     {

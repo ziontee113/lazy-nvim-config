@@ -26,7 +26,7 @@ just testing {}
 
 -- describe
 cs({
-    trigger = "_trigger",
+    trigger = "describe",
     nodes = fmt(
         [=[
 describe("{}", function()
@@ -47,7 +47,7 @@ end)
 })
 
 cs({
-    trigger = "_trigger",
+    trigger = "it",
     nodes = fmt(
         [=[
 it("{}", function()
@@ -101,7 +101,7 @@ print({})
 
 -- table.insert
 cs({
-    trigger = "_trigger",
+    trigger = "tabi",
     nodes = fmt(
         [=[
 table.insert({}, {})
@@ -138,7 +138,7 @@ end
 
 -- local function
 cs({
-    trigger = "_trigger",
+    trigger = "lof",
     nodes = fmt(
         [=[
 local {} = function({})
@@ -158,7 +158,7 @@ end
 
 -- M. function
 cs({
-    trigger = "_trigger",
+    trigger = "mfu",
     nodes = fmt(
         [=[
 M.{} = function({})
@@ -194,7 +194,7 @@ require("{}")
 
 -- local & require
 cs({
-    trigger = "_trigger",
+    trigger = "lore",
     nodes = fmt(
         [=[
 local {} = {}
@@ -211,7 +211,7 @@ local {} = {}
 
 -- <C-?> shortcut
 cs({
-    trigger = "_trigger",
+    trigger = "<",
     nodes = fmt(
         [=[
 <C-{}>
@@ -244,7 +244,7 @@ local {} = vim.api.nvim_create_augroup("{}", {{ clear = true }})
 
 -- Autocmd
 cs({
-    trigger = "_trigger",
+    trigger = "autocmd",
     nodes = fmt(
         [=[
 vim.api.nvim_create_autocmd({{ "{}" }}, {{
@@ -300,7 +300,7 @@ N({})
 
 -- vim.api.nvim_buf_set_extmark
 cs({
-    trigger = "_trigger",
+    trigger = "extmark",
     nodes = fmt(
         [=[
 vim.api.nvim_buf_set_extmark({}, {}, {}, {}, {{
@@ -325,7 +325,7 @@ vim.api.nvim_buf_set_extmark({}, {}, {}, {}, {{
 
 -- vim.api.nvim_buf_clear_namespace
 cs({
-    trigger = "_trigger",
+    trigger = "clear_namespace",
     nodes = fmt(
         [=[
 vim.api.nvim_buf_clear_namespace({}, {}, {}, {})
@@ -389,7 +389,7 @@ end
 
 -- vim.keymap.set
 cs({
-    trigger = "_trigger",
+    trigger = "vim.keymap.set",
     nodes = fmt(
         [=[
 vim.keymap.set("{}", "{}", {}, {{{}}})
@@ -418,7 +418,7 @@ end
 
 -- vim.api
 cs({
-    trigger = "_trigger",
+    trigger = "api",
     nodes = fmt(
         [=[
 {}
@@ -440,7 +440,7 @@ cs({
 
 -- LuaSnip fmt
 cs({
-    trigger = "_trigger",
+    trigger = "fmt",
     nodes = fmt(
         [==[
 {}fmt([=[
@@ -462,7 +462,7 @@ cs({
 
 -- LuaSnip Snippet Node
 cs({
-    trigger = "_trigger",
+    trigger = "snippet_node",
     nodes = fmt(
         [=[
 sn({}, {{{}}})
@@ -479,7 +479,7 @@ sn({}, {{{}}})
 
 -- LuaSnip Insert Node
 cs({
-    trigger = "_trigger",
+    trigger = "insert_node",
     nodes = fmt(
         [=[
 i(1, "{}"),
@@ -495,7 +495,7 @@ i(1, "{}"),
 
 -- LuaSnip Choice Node
 cs({
-    trigger = "_trigger",
+    trigger = "choice_node",
     nodes = fmt(
         [=[
 c({}, {{ {} }}),

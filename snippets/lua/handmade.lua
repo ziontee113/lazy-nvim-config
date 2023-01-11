@@ -194,7 +194,7 @@ require("{}")
 
 -- local & require
 cs({
-    trigger = "lore",
+    trigger = "loc",
     nodes = fmt(
         [=[
 local {} = {}
@@ -513,14 +513,15 @@ c({}, {{ {} }}),
 -- Create Lua Snippet
 local createLuaSnippet_keymaps_fmt = fmt(
     [[
-target_table = {},
-  pattern = {{ {} }},
-  keymaps = {{ {} }},
+{}target_table = {},
+    pattern = {{ {} }},
+    keymaps = {{ "{}" }},
   ]],
     {
-        c(1, { t("snippets"), t("autosnippets") }),
-        c(2, { i(1, "pattern"), sn(1, { t('*."'), i(1, '"') }) }),
-        i(3, ""),
+        i(1, ""),
+        c(2, { t("snippets"), t("autosnippets") }),
+        c(3, { i(1, "pattern"), sn(1, { t('*."'), i(1, '"') }) }),
+        i(4, ""),
     }
 )
 
@@ -544,9 +545,9 @@ cs({{
         i(1, ""),
         i(2, ""),
         c(4, {
-            createLuaSnippet_keymaps_fmt,
             t("target_table = snippets"),
             t("target_table = autosnippets"),
+            createLuaSnippet_keymaps_fmt,
         }),
     }
 )

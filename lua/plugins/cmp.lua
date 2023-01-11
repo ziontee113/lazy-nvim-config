@@ -110,6 +110,15 @@ return {
                     --         },
                     --     },
                     -- }),
+
+                    -- special: trigger snippets without typing the full trigger
+                    ["<A-;>"] = cmp.mapping(function()
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                            cmp.mapping.confirm({ select = false })()
+                        end
+                    end, { "i", "s" }),
+
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()

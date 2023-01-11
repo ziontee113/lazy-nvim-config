@@ -10,6 +10,7 @@ return {
     },
     cmd = "Telescope",
     keys = {
+        { "<C-n>", "<cmd>Telescope notify<cr>", desc = "Telescope notify" },
         { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
         { "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
         {
@@ -110,7 +111,7 @@ return {
             },
         })
 
-        local extensions = { "undo", "file_browser" }
+        local extensions = { "undo", "file_browser", "notify" }
         for _, e in ipairs(extensions) do
             telescope.load_extension(e)
         end

@@ -9,6 +9,23 @@ local pattern = "*.lua"
 ------------------------- Others
 
 cs({
+    trigger = "locM",
+    nodes = fmt(
+        [=[
+local M = {{}}
+
+{}
+
+return M
+]=],
+        {
+            i(1, ""),
+        }
+    ),
+    target_table = snippets,
+})
+
+cs({
     trigger = "selectionRange",
     nodes = fmt(
         [=[
@@ -96,6 +113,28 @@ cs({
 })
 
 -- ==== Lua ==== --
+
+-- for loop
+cs({
+    trigger = "for",
+    nodes = fmt(
+        [=[
+for {}, {} in {}({}) do
+    {}
+end
+]=],
+        {
+            i(1, "index"),
+            i(2, "value"),
+            c(3, { t("ipairs"), t("pair") }),
+            i(4, "table"),
+            i(5, "-- TODO:"),
+        }
+    ),
+    target_table = snippets,
+    pattern = { pattern },
+    keymaps = { "<C-f>o" },
+})
 
 -- print()
 cs({

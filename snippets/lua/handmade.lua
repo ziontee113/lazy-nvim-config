@@ -6,6 +6,20 @@ local cs = luasnip_utils.create_snippet
 local tsn = luasnip_utils.tsn
 local pattern = "*.lua"
 
+------------------------- Others
+
+cs({
+    trigger = "selectionRange",
+    nodes = fmt(
+        [=[
+local start_row, start_col = vim.fn.line("v"), vim.fn.col("v")
+local end_row, end_col = vim.fn.line("."), vim.fn.col(".")
+]=],
+        {}
+    ),
+    target_table = snippets,
+})
+
 -- ==== Testing tn (Treesitter Node) ==== --
 cs({
     trigger = "_trigger",

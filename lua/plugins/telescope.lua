@@ -56,6 +56,9 @@ return {
                         ["<C-l>"] = actions.select_default,
                     },
                 },
+                -- sorters
+                file_sorter = require("telescope.sorters").get_fuzzy_file,
+                generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
                 -- copied from https://github.com/NvChad/NvChad/blob/main/lua/plugins/configs/telescope.lua
                 prompt_prefix = "   ",
                 selection_caret = "  ",

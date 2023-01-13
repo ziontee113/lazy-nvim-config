@@ -4,6 +4,11 @@
 
 - DONE - Move to next Treesitter-ed node.
 
+# Ideas:
+
+- Treesitter-based context quick snippet hotkey
+- "Remember Last Choice" snippet
+
 # What I've enjoyed this week:
 
 ## Neovim Related

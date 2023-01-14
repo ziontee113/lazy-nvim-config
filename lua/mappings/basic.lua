@@ -17,8 +17,8 @@ vim.keymap.set("n", "vv", "viw", {})
 vim.keymap.set({ "i", "s" }, "<A-/>", "_")
 
 -- Move to beginning of line
-vim.keymap.set("n", "0", "^")
-vim.keymap.set("n", ")", "0")
+vim.keymap.set({ "n", "x", "o" }, "0", "^")
+vim.keymap.set({ "n", "x", "o" }, ")", "0")
 
 -- Closing window
 vim.keymap.set("n", "<leader>q", ":q<CR>")
@@ -72,7 +72,11 @@ vim.keymap.set("n", "<C-e>", "2<C-e>")
 vim.keymap.set("n", "<C-y>", "2<C-y>")
 
 -- "auto re-centre when moving around"
-vim.keymap.set("n", "G", "Gzz")
+vim.keymap.set("n", "G", function()
+    vim.o.lazyredraw = true
+    vim.cmd("norm! Gzz")
+    vim.o.lazyredraw = false
+end)
 vim.keymap.set("n", "g;", "m'g;zz", { desc = "next position in change list" })
 vim.keymap.set("n", "g,", "m'g,zz", { desc = "prev position in change list" })
 

@@ -1,5 +1,19 @@
 return {
     {
+        dir = "~/.config/nvim-custom-plugin/icon-picker.nvim/",
+        keys = {
+            { mode = "i", "<A-i>" },
+            { mode = "n", "<Leader><Leader>i" },
+        },
+        config = function()
+            require("icon-picker").setup({
+                disable_legacy_commands = true,
+            })
+            vim.keymap.set("i", "<A-i>", "<cmd>IconPickerInsert<cr>", {})
+            vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", {})
+        end,
+    },
+    {
         dir = "~/.config/nvim-custom-plugin/neo-minimap/",
         event = "VeryLazy",
         config = function()

@@ -9,23 +9,6 @@ local c = ls.choice_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
 
-vim.keymap.set("i", "<A-CR>", function()
-    if LAST_TRIGGERED_SNIPPET then
-        vim.api.nvim_input("<A-o>")
-        vim.schedule(function()
-            ls.expand_repeat()
-        end)
-    end
-end, {})
-vim.keymap.set("i", "<A-S-CR>", function()
-    if LAST_TRIGGERED_SNIPPET then
-        vim.api.nvim_input("<A-S-O>")
-        vim.schedule(function()
-            ls.expand_repeat()
-        end)
-    end
-end, {})
-
 function M.create_snippet(opts)
     local snippet = ls.s(opts.trigger, opts.nodes, opts.opts)
 

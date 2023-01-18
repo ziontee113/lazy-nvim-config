@@ -38,7 +38,10 @@ return {
         end, {})
 
         vim.keymap.set("n", "to", function()
-            neotest.output.open({ enter = true, short = true }) -- output window
+            neotest.output.open({ enter = true, short = true }) -- short output window
+        end, {})
+        vim.keymap.set("n", "tp", function()
+            neotest.output.open({ enter = true }) -- full output window
         end, {})
 
         vim.keymap.set("n", "TT", function()

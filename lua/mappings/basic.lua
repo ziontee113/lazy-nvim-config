@@ -52,7 +52,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Save Session and Quit
 vim.keymap.set("n", "<F8>", ":mks!<cr>")
 vim.keymap.set("n", "<F9>", ":wa!<cr>")
-vim.keymap.set("n", "<F12>", "gt1<cmd>mks!<cr>:qa!<cr>")
+vim.keymap.set("n", "<F12>", "1gt<cmd>mks!<cr>:qa!<cr>")
 vim.keymap.set("n", "<F11>", function()
     if vim.o.cmdheight == 0 then
         vim.o.cmdheight = 1

@@ -9,19 +9,21 @@ local c = ls.choice_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
 
-local last_triggered_snippet
-
 vim.keymap.set("i", "<A-CR>", function()
-    vim.api.nvim_input("<A-o>")
-    vim.schedule(function()
-        ls.snip_expand(last_triggered_snippet)
-    end)
+    if LAST_TRIGGERED_SNIPPET then
+        vim.api.nvim_input("<A-o>")
+        vim.schedule(function()
+            ls.snip_expand(LAST_TRIGGERED_SNIPPET)
+        end)
+    end
 end, {})
 vim.keymap.set("i", "<A-S-CR>", function()
-    vim.api.nvim_input("<A-S-O>")
-    vim.schedule(function()
-        ls.snip_expand(last_triggered_snippet)
-    end)
+    if LAST_TRIGGERED_SNIPPET then
+        vim.api.nvim_input("<A-S-O>")
+        vim.schedule(function()
+            ls.snip_expand(LAST_TRIGGERED_SNIPPET)
+        end)
+    end
 end, {})
 
 function M.create_snippet(opts)
@@ -48,7 +50,7 @@ function M.create_snippet(opts)
 
                         vim.keymap.set(keymap[1], keymap[2], function()
                             ls.snip_expand(snippet)
-                            last_triggered_snippet = snippet
+                            LAST_TRIGGERED_SNIPPET = snippet
                         end, { silent = true, buffer = true })
                     end
 

@@ -21,6 +21,17 @@ hello {}
     keymaps = { "<C-j>h" },
 })
 
+cs({
+    trigger = "range",
+    nodes = fmt(
+        [=[
+start_row, start_col, end_row, end_col
+]=],
+        {}
+    ),
+    target_table = snippets,
+})
+
 -------------------------------------------------------------------------
 
 return snippets, autosnippets

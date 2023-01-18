@@ -13,7 +13,7 @@ vim.keymap.set("i", "<A-CR>", function()
     if LAST_TRIGGERED_SNIPPET then
         vim.api.nvim_input("<A-o>")
         vim.schedule(function()
-            ls.snip_expand(LAST_TRIGGERED_SNIPPET)
+            ls.expand_repeat()
         end)
     end
 end, {})
@@ -21,7 +21,7 @@ vim.keymap.set("i", "<A-S-CR>", function()
     if LAST_TRIGGERED_SNIPPET then
         vim.api.nvim_input("<A-S-O>")
         vim.schedule(function()
-            ls.snip_expand(LAST_TRIGGERED_SNIPPET)
+            ls.expand_repeat()
         end)
     end
 end, {})

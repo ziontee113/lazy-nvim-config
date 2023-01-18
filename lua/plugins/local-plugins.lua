@@ -79,6 +79,7 @@ return {
                         ;; ((dot_index_expression field: ((identifier) @name (#eq? @name "{cursorword}"))) @cap)
                         ((function_declaration) @cap)
                         ((assignment_statement(expression_list((function_definition) @cap))))
+                        ((identifier) @cap (#any-of? @cap "describe" "it"))
                     ]],
                     1,
                     [[

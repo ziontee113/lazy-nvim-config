@@ -1,3 +1,6 @@
+-- Map <C-i> to <C-i>
+vim.keymap.set({ "n", "x" }, "<C-i>", "<C-i>", {})
+
 -- Switch Tab
 vim.keymap.set("n", "zp", function()
     vim.cmd("tabprev")

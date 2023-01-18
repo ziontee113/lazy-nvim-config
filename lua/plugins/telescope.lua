@@ -6,6 +6,7 @@ return {
             "nvim-lua/plenary.nvim",
             "debugloop/telescope-undo.nvim",
             "nvim-telescope/telescope-file-browser.nvim",
+            "ThePrimeagen/harpoon",
         },
     },
     cmd = "Telescope",
@@ -38,6 +39,16 @@ return {
             "<cmd>Telescope highlights<cr>",
             desc = "Telescope highlights",
         },
+        {
+            "<C-0>",
+            "<cmd>Telescope resume<cr>",
+            desc = "Telescope resume",
+        },
+        {
+            "<leader>of",
+            "<cmd>Telescope oldfiles<cr>",
+            desc = "Telescope oldfiles",
+        },
     },
     config = function()
         local telescope = require("telescope")
@@ -54,6 +65,8 @@ return {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
                         ["<C-l>"] = actions.select_default,
+                        ["<C-p>"] = actions.cycle_history_prev,
+                        ["<C-n>"] = actions.cycle_history_next,
                     },
                 },
                 -- sorters
@@ -100,11 +113,13 @@ return {
                 file_browser = {
                     theme = "ivy",
                     hijack_netrw = true,
+                    initial_mode = "insert",
                     mappings = {
                         ["i"] = {
                             -- your custom insert mode mappings
                             ["<A-a>"] = telescope.extensions.file_browser.actions.create,
                             ["<C-t>"] = actions.file_tab,
+                            ["<Esc>"] = false,
                         },
                         ["n"] = {
                             -- your custom normal mode mappings

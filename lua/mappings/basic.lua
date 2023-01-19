@@ -88,7 +88,7 @@ vim.keymap.set("x", "p", '"_dP', { desc = "don't replace register when pasting" 
 -- Local List related
 vim.keymap.set("n", "<leader>gw", ":silent lgrep <word> % <CR>")
 
--- spelling
+-- Spelling
 vim.keymap.set("n", "<leader>sp", function()
     vim.wo.spell = not vim.wo.spell
 end, { desc = "toggle spelling" })

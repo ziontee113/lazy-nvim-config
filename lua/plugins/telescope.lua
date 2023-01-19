@@ -49,6 +49,11 @@ return {
             "<cmd>Telescope oldfiles<cr>",
             desc = "Telescope oldfiles",
         },
+        {
+            "<leader>ke",
+            "<cmd>Telescope keymaps<cr>",
+            desc = "Telescope keymaps",
+        },
     },
     config = function()
         local telescope = require("telescope")
@@ -119,7 +124,6 @@ return {
                             -- your custom insert mode mappings
                             ["<A-a>"] = telescope.extensions.file_browser.actions.create,
                             ["<C-t>"] = actions.file_tab,
-                            ["<Esc>"] = false,
                         },
                         ["n"] = {
                             -- your custom normal mode mappings

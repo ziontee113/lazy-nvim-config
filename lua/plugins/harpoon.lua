@@ -4,13 +4,10 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
     },
+    -- TODO: rethink the way we use `ui.nav_file`, since pressing <Tab> then `l` feels so much quicker
     keys = {
         "<leader>ha",
         "<Tab>",
-        "[[",
-        "]]",
-        "[]",
-        "][",
     },
     config = function()
         local ui = require("harpoon.ui")
@@ -20,19 +17,6 @@ return {
         end, {})
         vim.keymap.set("n", "<Tab>", function()
             ui.toggle_quick_menu()
-        end, {})
-
-        vim.keymap.set("n", "[[", function()
-            ui.nav_file(1)
-        end, {})
-        vim.keymap.set("n", "]]", function()
-            ui.nav_file(2)
-        end, {})
-        vim.keymap.set("n", "[]", function()
-            ui.nav_file(3)
-        end, {})
-        vim.keymap.set("n", "][", function()
-            ui.nav_file(4)
         end, {})
     end,
 }

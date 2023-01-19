@@ -20,3 +20,31 @@ vim.keymap.set("n", "<C-t>", function()
     vim.cmd("tabnew")
     vim.cmd("e " .. working_directory .. curline)
 end, { buffer = true, noremap = true, silent = true })
+
+-- press `l` to open file
+vim.keymap.set("n", "l", function()
+    vim.api.nvim_input("<CR>")
+end, { buffer = true })
+
+-- press number keys to jump to file when Harpoon is opened
+local ui = require("harpoon.ui")
+vim.keymap.set("n", "1", function()
+    ui.nav_file(1)
+end, {})
+vim.keymap.set("n", "2", function()
+    ui.nav_file(2)
+end, {})
+vim.keymap.set("n", "3", function()
+    ui.nav_file(3)
+end, {})
+vim.keymap.set("n", "4", function()
+    ui.nav_file(4)
+end, {})
+
+-- Tmux navigation when Harpoon is open
+vim.keymap.set("n", "[", function()
+    vim.fn.jobstart("tmux previous-window")
+end, { buffer = true, nowait = true })
+vim.keymap.set("n", "]", function()
+    vim.fn.jobstart("tmux next-window")
+end, { buffer = true, nowait = true })

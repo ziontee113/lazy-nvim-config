@@ -185,8 +185,6 @@ return {
         config = function()
             local tree_hopper = require("tsht")
 
-            tree_hopper.config.ft_to_parser.typescriptreact = "tsx"
-
             vim.keymap.set("n", "vm", function()
                 tree_hopper.nodes()
             end, {})

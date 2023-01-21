@@ -18,6 +18,10 @@ require("settings.execute_on_save_autocmd")
 -- require("settings.line_number_autocmd")
 
 require("lazy").setup("plugins", {
+    dev = {
+        path = "~/.config/dev-nvim/",
+        patterns = { "ziontee113" },
+    },
     change_detection = {
         enabled = false,
         notify = false,
@@ -36,14 +40,3 @@ require("globals")
 
 ---- remote mapping
 -- require("scripts.tcp")
-
--- ---- dev
--- vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/zion-kit/]])
--- require("zion-kit")
--- vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/snippet-factory.nvim/]])
--- require("snippet-factory")
---
--- vim.keymap.set("n", "R", function()
---     -- R("zion-kit")
---     R("snippet-factory")
--- end, {})

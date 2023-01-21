@@ -33,6 +33,7 @@ require("mappings.basic")
 require("mappings.paragraph-jumping")
 
 ---- colorscheme modifications
+-- require("settings.colors")
 require("settings.transparent")
 
 ---- global functions / variables

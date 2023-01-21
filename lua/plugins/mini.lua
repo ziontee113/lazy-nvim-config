@@ -12,6 +12,8 @@ return {
             { mode = "x", "gc" },
             { mode = "n", "", "gcc", remap = true },
             { mode = "x", "", "gc", remap = true },
+            { mode = "n", "<C-/>", "gcc", remap = true },
+            { mode = "x", "<C-/>", "gc", remap = true },
         },
         config = function()
             require("mini.comment").setup({

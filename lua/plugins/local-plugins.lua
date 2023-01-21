@@ -1,6 +1,6 @@
 return {
     {
-        dir = "~/.config/nvim-custom-plugin/query-secretary/",
+        "ziontee113/query-secretary",
         keys = { "<leader><BS>" },
         config = function()
             require("query-secretary").setup({
@@ -41,7 +41,7 @@ return {
         end,
     },
     {
-        dir = "~/.config/nvim-custom-plugin/icon-picker.nvim/",
+        "ziontee113/icon-picker.nvim",
         keys = {
             { mode = "i", "<A-i>" },
             { mode = "n", "<Leader><Leader>i" },
@@ -55,7 +55,7 @@ return {
         end,
     },
     {
-        dir = "~/.config/nvim-custom-plugin/neo-minimap/",
+        "ziontee113/neo-minimap",
         event = "VeryLazy",
         config = function()
             local nm = require("neo-minimap")
@@ -178,7 +178,7 @@ return {
         end,
     },
     {
-        dir = "~/.local/share/nvim/site/pack/packer/start/nvim-treehopper/",
+        "mfussenegger/nvim-treehopper",
         keys = {
             { "vm", mode = "n" },
         },
@@ -193,7 +193,7 @@ return {
         end,
     },
     {
-        dir = "~/.config/nvim-custom-plugin/color-picker/",
+        "ziontee113/color-picker.nvim",
         keys = {
             { "<C-c>", "<cmd>PickColor<cr>", mode = "n" },
             { "<C-c>", "<cmd>PickColorInsert<cr>", mode = "i" },
@@ -211,7 +211,7 @@ return {
         end,
     },
     {
-        dir = "~/.config/nvim-custom-plugin/syntax-tree-surfer/",
+        "ziontee113/syntax-tree-surfer",
         keys = {
             { "vu", mode = "n" },
             { "vd", mode = "n" },

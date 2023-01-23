@@ -80,7 +80,7 @@ local {} = {{
             i(9, "insert_nodes"),
             i(10, "\\n"),
         }
-),
+    ),
     target_table = snippets,
 })
 
@@ -108,6 +108,39 @@ cs({
             i(8, "end_row"),
             i(9, "end_col"),
             i(10, "priority"),
+        }
+    ),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "ass",
+    nodes = fmt(
+        [=[
+{}.{}({}, {})
+]=],
+        {
+            i(1, "assert"),
+            i(2, "same"),
+            i(3, "want"),
+            i(4, "got"),
+        }
+    ),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "sep",
+    nodes = fmt(
+        [=[
+
+
+--------------------------------------------
+
+
+]=],
+        {
+            
         }
 ),
     target_table = snippets,

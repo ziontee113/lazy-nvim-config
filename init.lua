@@ -41,3 +41,10 @@ require("globals")
 
 ---- remote mapping
 -- require("scripts.tcp")
+
+---- dev
+-- vim.cmd([[set runtimepath+=~/dev/nvim-custom-plugin/zion-kit/]])
+-- require("zion-kit")
+
+vim.cmd([[set runtimepath+=~/.config/dev-nvim/snippet-factory.nvim/]])
+require("snippet-factory")

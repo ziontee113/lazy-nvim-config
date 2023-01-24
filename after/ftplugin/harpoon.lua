@@ -40,11 +40,3 @@ end, {})
 vim.keymap.set("n", "4", function()
     ui.nav_file(4)
 end, {})
-
--- Tmux navigation when Harpoon is open
-vim.keymap.set("n", "[", function()
-    vim.fn.jobstart("tmux previous-window")
-end, { buffer = true, nowait = true })
-vim.keymap.set("n", "]", function()
-    vim.fn.jobstart("tmux next-window")
-end, { buffer = true, nowait = true })

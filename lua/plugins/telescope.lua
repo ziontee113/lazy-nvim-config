@@ -11,6 +11,8 @@ return {
     },
     cmd = "Telescope",
     keys = {
+        { "<A-Space>", desc = "Cycle Telescope Pickers" },
+
         { "<C-n>", "<cmd>Telescope notify<cr>", desc = "Telescope notify" },
         { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
         { "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
@@ -64,7 +66,7 @@ return {
         local builtin = require("telescope.builtin")
 
         local my_cycle_picker =
-            require("lua.special.cycle-telescope-pickers")(builtin.find_files, builtin.live_grep)
+            require("lua.special.cycle-telescope-pickers")(builtin.live_grep, builtin.find_files)
 
         vim.keymap.set("n", "<A-Space>", function()
             my_cycle_picker()

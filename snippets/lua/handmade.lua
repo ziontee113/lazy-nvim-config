@@ -179,7 +179,7 @@ function {}({})
 end
 ]=],
         {
-            i(1, "name"),
+            i(1, "myfunc"),
             i(2, ""),
             i(3, ""),
         }
@@ -199,7 +199,7 @@ local {} = function({})
 end
 ]=],
         {
-            i(1, "name"),
+            i(1, "myfunc"),
             i(2, ""),
             i(3, ""),
         }
@@ -219,7 +219,7 @@ M.{} = function({})
 end
 ]=],
         {
-            i(1, "name"),
+            i(1, "myfunc"),
             i(2, ""),
             i(3, ""),
         }

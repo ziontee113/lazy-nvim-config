@@ -42,9 +42,21 @@ require("globals")
 ---- remote mapping
 -- require("scripts.tcp")
 
+---- experimenting scripts
+require("special.make_lua_file")
+
 ---- dev
 -- vim.cmd([[set runtimepath+=~/dev/nvim-custom-plugin/zion-kit/]])
 -- require("zion-kit")
 
 vim.cmd([[set runtimepath+=~/.config/dev-nvim/snippet-factory.nvim/]])
 require("snippet-factory")
+
+-------------------------------------------------------------------------- example.nvim
+
+vim.cmd([[set runtimepath+=~/.config/dev-nvim/MAGO/]])
+require("MAGO")
+
+vim.keymap.set("n", "R", function()
+    R("MAGO")
+end, {})

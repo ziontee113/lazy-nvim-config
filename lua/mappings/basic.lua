@@ -164,4 +164,6 @@ end, { desc = "scrollbind current window" })
 
 vim.keymap.set("x", "/", "<Esc>/\\%V", { desc = "Search in visually selected region" })
 
+--------------------------
+
 -- {{{nvim-execute-on-save}}}

@@ -56,6 +56,8 @@ return {
         },
     },
     config = function()
+        require("custom-telescope-pickers")
+
         local telescope = require("telescope")
         local actions = require("telescope.actions")
         telescope.setup({

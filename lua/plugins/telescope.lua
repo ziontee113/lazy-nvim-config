@@ -60,6 +60,16 @@ return {
 
         local telescope = require("telescope")
         local actions = require("telescope.actions")
+
+        local builtin = require("telescope.builtin")
+
+        local my_cycle_picker =
+            require("lua.special.cycle-telescope-pickers")(builtin.find_files, builtin.live_grep)
+
+        vim.keymap.set("n", "<A-Space>", function()
+            my_cycle_picker()
+        end, {})
+
         telescope.setup({
             defaults = {
                 dynamic_preview_title = true,
@@ -74,6 +84,9 @@ return {
                         ["<C-l>"] = actions.select_default,
                         ["<C-p>"] = actions.cycle_history_prev,
                         ["<C-n>"] = actions.cycle_history_next,
+                        ["<A-Space>"] = function()
+                            my_cycle_picker.next()
+                        end,
                     },
                 },
                 -- sorters

@@ -23,12 +23,20 @@ M.first_picker = function()
     }
 
     local first_picker_func = function(prompt_bufnr)
-        local selected_entry = action_state.get_selected_entry()
+        local picker = action_state.get_current_picker(prompt_bufnr)
 
-        selected_entry = selected_entry[1]
+        local selected_entries = {}
+        for _, entry in ipairs(picker:get_multi_selection()) do
+            table.insert(selected_entries, entry)
+        end
+
+        N(selected_entries)
+
         local new_tbl = {}
-        for i = 1, 10, 1 do
-            table.insert(new_tbl, selected_entry .. " - " .. tostring(i))
+        for _, entry in ipairs(selected_entries) do
+            for i = 1, 10, 1 do
+                table.insert(new_tbl, entry[1] .. " - " .. tostring(i))
+            end
         end
 
         local new_picker = M.second_picker(new_tbl)

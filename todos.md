@@ -1,3 +1,3 @@
 # Todos:
 
-- Have multiple color sets for gruvbox.nvim.
+- Familiarize with Treesitter Text objects

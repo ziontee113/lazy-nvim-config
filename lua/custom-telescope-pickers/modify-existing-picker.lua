@@ -15,6 +15,8 @@ local picker_func = function(prompt_bufnr)
     end
 
     N(selected_entries)
+
+    actions.close(prompt_bufnr) -- also prevent picker's default behavior
 end
 
 local opts = {

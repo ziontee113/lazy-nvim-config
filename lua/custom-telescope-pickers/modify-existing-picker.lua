@@ -2,7 +2,7 @@ local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 local builtin = require("telescope.builtin")
 
-local picker_func = function(prompt_bufnr)
+local get_entries = function(prompt_bufnr)
     local picker = action_state.get_current_picker(prompt_bufnr)
 
     local selected_entries = {}
@@ -13,6 +13,12 @@ local picker_func = function(prompt_bufnr)
     if #selected_entries == 0 then
         table.insert(selected_entries, action_state.get_selected_entry()[1])
     end
+
+    return selected_entries
+end
+
+local picker_func = function(prompt_bufnr)
+    local selected_entries = get_entries(prompt_bufnr)
 
     N(selected_entries)
 

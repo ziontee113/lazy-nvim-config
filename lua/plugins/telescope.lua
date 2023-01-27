@@ -66,7 +66,7 @@ return {
         local builtin = require("telescope.builtin")
 
         local my_cycle_picker =
-            require("lua.special.cycle-telescope-pickers")(builtin.live_grep, builtin.find_files)
+            require("special.cycle-telescope-pickers")(builtin.live_grep, builtin.find_files)
 
         vim.keymap.set("n", "<A-Space>", function()
             my_cycle_picker()

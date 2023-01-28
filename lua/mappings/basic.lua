@@ -1,3 +1,15 @@
+local top_scroll = function(value)
+    local old_scrolloff = vim.o.scrolloff
+    vim.o.scrolloff = value
+    vim.cmd("norm! zt")
+    vim.o.scrolloff = old_scrolloff
+end
+
+-- Map z; to zt
+vim.keymap.set("n", "z;", function()
+    top_scroll(6)
+end, {})
+
 -- Map <C-i> to <C-i>
 vim.keymap.set({ "n", "x" }, "<C-i>", "<C-i>", {})
 

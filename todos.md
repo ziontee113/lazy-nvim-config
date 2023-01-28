@@ -22,4 +22,14 @@
 Factors that contributes to changing beliefs:
 
 - New information
-- Letting go of old beliefs / Old beliefs become obsolete
+- Letting go of old beliefs / old beliefs become obsolete, no longer needed
+- Changing of situation, personal needs
+
+- For example: one of the beliefs I have is `I don't want to create a framework for Neovim components`
+- Question: if my needs change, will my beliefs change too?
+- Answer: Yes
+
+- Question: Then, why do I need to create framework to create Neovim components?
+
+# Realization vs Engagement
+- Interesting topic to cover, don't miss out.

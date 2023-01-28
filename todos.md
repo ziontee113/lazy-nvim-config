@@ -33,3 +33,21 @@ Factors that contributes to changing beliefs:
 
 # Realization vs Engagement
 - Interesting topic to cover, don't miss out.
+
+## Engagement vs Random Access Memories
+
+- How can Random Access Memories be affected?
+
+# Understanding new code
+
+### New code couldn't be understood with just:
+
+- Quickly reading through it
+- Tokei it
+
+## How can we understand new code faster?
+
+### Use a debugger
+
+- Read the tests (if there's any)
+- Debugging (either using a debugger or your custom `print` solutions)

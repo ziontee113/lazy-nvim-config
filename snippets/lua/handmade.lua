@@ -136,6 +136,23 @@ end
     keymaps = { "<C-f>o" },
 })
 
+-- vim.inspect()
+
+cs({
+    trigger = "_trigger",
+    nodes = fmt(
+        [=[
+print(vim.inspect({}))
+]=],
+        {
+            i(1, ""),
+        }
+    ),
+    target_table = snippets,
+    pattern = { "*.lua" },
+    keymaps = { "<C-j>p" },
+})
+
 -- print()
 cs({
     trigger = "_trigger",

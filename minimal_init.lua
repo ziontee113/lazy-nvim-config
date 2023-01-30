@@ -1,4 +1,5 @@
-local plenary_dir = os.getenv("PLENARY_DIR") or "/tmp/plenary.nvim"
+local plenary_dir = os.getenv("PLENARY_DIR")
+    or "/home/ziontee113/.local/share/nvim/lazy/plenary.nvim/"
 
 local is_not_a_directory = vim.fn.isdirectory(plenary_dir) == 0
 if is_not_a_directory then

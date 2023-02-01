@@ -37,13 +37,13 @@ require("globals")
 ---- remote mapping
 -- require("scripts.tcp")
 
----- dev
-vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/zion-kit/]])
-require("zion-kit")
-vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/snippet-factory.nvim/]])
-require("snippet-factory")
+-- ---- dev
+-- vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/zion-kit/]])
+-- require("zion-kit")
+-- vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/snippet-factory.nvim/]])
+-- require("snippet-factory")
 
-vim.keymap.set("n", "R", function()
-    -- R("zion-kit")
-    R("snippet-factory")
-end, {})
+-- vim.keymap.set("n", "R", function()
+--     -- R("zion-kit")
+--     R("snippet-factory")
+-- end, {})

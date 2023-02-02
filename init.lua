@@ -22,6 +22,10 @@ require("lazy").setup("plugins", {
         enabled = false,
         notify = false,
     },
+    dev = {
+        path = "~/.config/dev-nvim/",
+        patterns = { "ziontee113" },
+    },
 })
 
 ---- mappings

@@ -16,6 +16,7 @@ vim.opt.runtimepath:prepend(lazypath)
 require("settings.basic")
 require("settings.execute_on_save_autocmd")
 -- require("settings.line_number_autocmd")
+require("settings.cmd_abbrev")
 
 require("lazy").setup("plugins", {
     dev = {
@@ -49,12 +50,12 @@ require("special.make_lua_file")
 -- vim.cmd([[set runtimepath+=~/dev/nvim-custom-plugin/zion-kit/]])
 -- require("zion-kit")
 
-vim.cmd([[set runtimepath+=~/.config/dev-nvim/snippet-factory.nvim/]])
-require("snippet-factory")
+-- vim.cmd([[set runtimepath+=~/.config/dev-nvim/snippet-factory.nvim/]])
+-- require("snippet-factory")
 
 -------------------------------------------------------------------------- example.nvim
 
-vim.cmd([[set runtimepath+=~/.config/dev-nvim/MAGO/]])
+vim.cmd([[set runtimepath+=/home/ziontee113/.config/dev-nvim/MAGO.nvim/]])
 require("MAGO")
 
 vim.keymap.set("n", "R", function()

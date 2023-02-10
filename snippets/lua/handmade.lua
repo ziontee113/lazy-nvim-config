@@ -6,6 +6,8 @@ local cs = luasnip_utils.create_snippet
 local tsn = luasnip_utils.tsn
 local pattern = "*.lua"
 
+-- QUESTION: what about variations of a choice?
+
 ------------------------- Others
 
 cs({

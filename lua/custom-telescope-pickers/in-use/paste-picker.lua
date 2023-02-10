@@ -24,10 +24,10 @@ local opts = {
     end,
 }
 
-vim.keymap.set("n", "<leader>x", function()
+return function()
     target_bufnr = vim.api.nvim_get_current_buf()
 
     builtin.find_files(opts)
-end, {})
+end
 
 -- {{{nvim-execute-on-save}}}

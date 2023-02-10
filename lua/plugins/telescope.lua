@@ -11,6 +11,8 @@ return {
     },
     cmd = "Telescope",
     keys = {
+        { "<leader>pp", desc = "Custom Paste Picker" },
+
         { "<A-Space>", desc = "Cycle Telescope Pickers" },
 
         { "<C-n>", "<cmd>Telescope notify<cr>", desc = "Telescope notify" },
@@ -154,5 +156,12 @@ return {
         for _, e in ipairs(extensions) do
             telescope.load_extension(e)
         end
+
+        -- Testing custom pickers
+        local paste_picker = require("custom-telescope-pickers.in-use.paste-picker")
+
+        vim.keymap.set("n", "<leader>pp", function()
+            paste_picker()
+        end, {})
     end,
 }

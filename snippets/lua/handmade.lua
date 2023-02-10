@@ -103,7 +103,7 @@ cs({
 -- {}: {}
 ]=],
         {
-            c(1, { t("TODO"), t("FIX"), t("HACK"), t("BUG"), t("QUESTION") }),
+            c(1, { t(""), t("TODO"), t("ANSWER"), t("FIX"), t("HACK"), t("BUG"), t("QUESTION") }),
             i(2, ""),
         }
     ),

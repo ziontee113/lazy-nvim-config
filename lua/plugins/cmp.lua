@@ -116,6 +116,9 @@ return {
                         if cmp.visible() then
                             cmp.select_next_item()
                             cmp.mapping.confirm({ select = false })()
+                        else
+                            -- <A-;> to input <Del> when cmp not present
+                            vim.api.nvim_input("<Del>")
                         end
                     end, { "i", "s" }),
 

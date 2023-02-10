@@ -39,4 +39,6 @@ vim.cmd("set statusline=%{repeat('─',winwidth('.'))}")
 o.laststatus = 0
 o.cmdheight = 0
 
+o.showtabline = 2
+
 -- {{{nvim-execute-on-save}}}

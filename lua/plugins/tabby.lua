@@ -21,11 +21,11 @@ return {
                     -- line.sep("", theme.head, theme.fill),
                 },
                 line.tabs().foreach(function(tab)
-                    if #vim.api.nvim_list_tabpages() == 1 then
-                        vim.o.showtabline = 0
-                    else
-                        vim.o.showtabline = 2
-                    end
+                    -- if #vim.api.nvim_list_tabpages() == 1 then
+                    --     vim.o.showtabline = 0
+                    -- else
+                    --     vim.o.showtabline = 2
+                    -- end
 
                     local hl = tab.is_current() and theme.current_tab or theme.tab
                     return {

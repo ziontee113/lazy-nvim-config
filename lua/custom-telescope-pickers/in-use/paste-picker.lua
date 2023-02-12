@@ -15,7 +15,7 @@ end
 
 local opts = {
     prompt_title = "My Dotfiles",
-    search_dirs = { "~/dotfiles/" },
+    search_dirs = { "~/.config/dev-nvim/snippet-factory.nvim/" },
     shorten_path = true,
 
     attach_mappings = function(_, map)

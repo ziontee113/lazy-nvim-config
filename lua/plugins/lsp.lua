@@ -15,7 +15,7 @@ return {
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.rustfmt,
                     null_ls.builtins.formatting.prettierd,
-                    null_ls.builtins.formatting.rustywind,
+                    -- null_ls.builtins.formatting.rustywind,
                 },
             })
         end,
@@ -80,7 +80,7 @@ return {
             local lspconfig = require("lspconfig")
 
             -- Generic Settings
-            local generic_servers = { "svelte" }
+            local generic_servers = { "svelte", "tsserver" }
             for _, server in ipairs(generic_servers) do
                 lspconfig[server].setup({
                     on_attach = on_attach,

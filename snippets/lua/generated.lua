@@ -117,13 +117,12 @@ cs({
     trigger = "ass",
     nodes = fmt(
         [=[
-{}.{}({}, {})
+assert.{}({}, {})
 ]=],
         {
-            i(1, "assert"),
-            i(2, "same"),
-            i(3, "want"),
-            i(4, "got"),
+            c(1, { t("equals"), t("same") }),
+            i(2, "want"),
+            i(3, "got"),
         }
     ),
     target_table = snippets,
@@ -142,6 +141,6 @@ cs({
     target_table = snippets,
 })
 
--------------------------------------------------------------------------
+------------------------------------------------------------------------- Snippets goes here
 
 return snippets, autosnippets

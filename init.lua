@@ -57,7 +57,5 @@ require("special.make_lua_file")
 
 vim.cmd([[set runtimepath+=/home/ziontee113/.config/dev-nvim/MAGO.nvim/]])
 require("MAGO")
-
-vim.keymap.set("n", "R", function()
-    R("MAGO")
-end, {})
+vim.cmd([[set runtimepath+=/home/ziontee113/.config/dev-nvim/SnippetGenie/]])
+require("SnippetGenie")

@@ -1,5 +1,26 @@
 return {
     {
+        "ziontee113/SnippetGenie",
+        config = function()
+            require("SnippetGenie").setup({
+                snippet_skeleton = [[
+cs({{
+    trigger = "{trigger}",
+    nodes = fmt(
+        [=[
+{body}
+]=],
+        {{
+            {nodes}
+        }}
+),
+    target_table = snippets,
+}})
+]],
+            })
+        end,
+    },
+    {
         "ziontee113/query-secretary",
         keys = { "<leader><BS>" },
         config = function()

@@ -2,7 +2,9 @@ return {
     {
         "ziontee113/SnippetGenie",
         config = function()
-            require("SnippetGenie").setup({
+            local genie = require("SnippetGenie")
+
+            genie.setup({
                 snippet_skeleton = [[
 cs({{
     trigger = "{trigger}",
@@ -18,6 +20,16 @@ cs({{
 }})
 ]],
             })
+
+            -- keymaps
+            vim.keymap.set("x", "<CR>", function()
+                genie.create_new_snippet_or_add_placeholder()
+                vim.cmd("norm! ") -- exit Visual Mode, go back to Normal Mode
+            end, {})
+
+            vim.keymap.set("n", "<CR>", function()
+                genie.finalize_snippet()
+            end, {})
         end,
     },
     {

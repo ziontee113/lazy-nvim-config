@@ -1,3 +1,10 @@
+-- Select Mode Mappings
+
+vim.keymap.set("s", "<BS>", function()
+    vim.api.nvim_input("<Del>")
+    vim.cmd("startinsert")
+end, {})
+
 local top_scroll = function(value)
     local old_scrolloff = vim.o.scrolloff
     vim.o.scrolloff = value

@@ -194,6 +194,19 @@ end)
     target_table = snippets,
 })
 
+cs({
+    trigger = "node:range",
+    nodes = fmt(
+        [=[
+local start_row, start_col, end_row, end_col = node:range()
+]=],
+        {
+            
+        }
+),
+    target_table = snippets,
+})
+
 ------------------------------------------------------------------------- Snippets goes here
 
 return snippets, autosnippets

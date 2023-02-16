@@ -40,6 +40,13 @@ return {
                     current_line_only = true,
                 })
             end, {})
+
+            vim.keymap.set({ "n", "s", "i" }, "<C-A-p>", function()
+                candy.select_node({ query = query, direction = "previous" })
+            end, {})
+            vim.keymap.set({ "n", "s", "i" }, "<C-A-n>", function()
+                candy.select_node({ query = query, direction = "next" })
+            end, {})
         end,
     },
     {

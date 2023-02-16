@@ -4,34 +4,41 @@ return {
         config = function()
             local candy = require("CottonCandy")
 
-            local identifier_query = "((identifier) @cap)"
-            local string_content_query = '("string_content" @cap)'
-
-            local identifier_and_string_cotent_query = [[
+            local query = [[
                 ;; query
                 ((identifier) @cap)
                 ("string_content" @cap)
+                ((true) @cap)
+                ((false) @cap)
             ]]
 
             vim.keymap.set({ "n", "s", "i" }, "<C-A-k>", function()
                 candy.select_node({
-                    query = identifier_query,
+                    query = query,
                     direction = "previous",
                     vertical_drill_jump = true,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-j>", function()
                 candy.select_node({
-                    query = identifier_query,
+                    query = query,
                     direction = "next",
                     vertical_drill_jump = true,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-h>", function()
-                candy.select_node({ query = string_content_query, direction = "previous" })
+                candy.select_node({
+                    query = query,
+                    direction = "previous",
+                    current_line_only = true,
+                })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-l>", function()
-                candy.select_node({ query = string_content_query, direction = "next" })
+                candy.select_node({
+                    query = query,
+                    direction = "next",
+                    current_line_only = true,
+                })
             end, {})
         end,
     },

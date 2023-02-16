@@ -112,6 +112,88 @@ vim.cmd("startinsert")
     target_table = snippets,
 })
 
+cs({
+    trigger = "norm",
+    nodes = fmt(
+        [=[
+vim.cmd("norm! {}")
+]=],
+        {
+            i(1, "omg"),
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "get_node_text",
+    nodes = fmt(
+        [=[
+vim.treesitter.get_node_text({}, {})
+]=],
+        {
+            i(1, "node"),
+            i(2, "0"),
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "cursor",
+    nodes = fmt(
+        [=[
+vim.api.nvim_win_get_cursor({})
+]=],
+        {
+            i(1, "0"),
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "update_selection",
+    nodes = fmt(
+        [=[
+ts_utils.update_selection({}, {})
+]=],
+        {
+            i(1, "0"),
+            i(2, "node"),
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "ts_utils",
+    nodes = fmt(
+        [=[
+{}
+]=],
+        {
+            i(1, "local ts_utils = require(\"nvim-treesitter.ts_utils\")"),
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "schedule",
+    nodes = fmt(
+        [=[
+vim.schedule(function ()
+{}
+end)
+]=],
+        {
+            i(1, "   --   "),
+        }
+),
+    target_table = snippets,
+})
+
 ------------------------------------------------------------------------- Snippets goes here
 
 return snippets, autosnippets

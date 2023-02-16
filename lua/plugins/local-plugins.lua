@@ -1,5 +1,27 @@
 return {
     {
+        "ziontee113/CottonCandy",
+        config = function()
+            local candy = require("CottonCandy")
+
+            local identifier_query = "((identifier) @cap)"
+            local string_content_query = '("string_content" @cap)'
+
+            vim.keymap.set({ "n", "s", "i" }, "<C-A-k>", function()
+                candy.select_node({ query = identifier_query, direction = "previous" })
+            end, {})
+            vim.keymap.set({ "n", "s", "i" }, "<C-A-j>", function()
+                candy.select_node({ query = identifier_query, direction = "next" })
+            end, {})
+            vim.keymap.set({ "n", "s", "i" }, "<C-A-h>", function()
+                candy.select_node({ query = string_content_query, direction = "previous" })
+            end, {})
+            vim.keymap.set({ "n", "s", "i" }, "<C-A-l>", function()
+                candy.select_node({ query = string_content_query, direction = "next" })
+            end, {})
+        end,
+    },
+    {
         "ziontee113/SnippetGenie",
         config = function()
             local genie = require("SnippetGenie")

@@ -1,51 +1,61 @@
 return {
     {
-        "ziontee113/CottonCandy",
+        "ziontee113/SelectEase",
         config = function()
-            local candy = require("CottonCandy")
+            local candy = require("SelectEase")
 
-            local query = [[
+            local lua_query = [[
                 ;; query
                 ((identifier) @cap)
                 ("string_content" @cap)
                 ((true) @cap)
                 ((false) @cap)
             ]]
+            local python_query = [[
+                ;; query
+                ((identifier) @cap)
+                ((string) @cap)
+            ]]
+
+            local queries = {
+                lua = lua_query,
+                python = python_query,
+            }
 
             vim.keymap.set({ "n", "s", "i" }, "<C-A-k>", function()
                 candy.select_node({
-                    query = query,
+                    queries = queries,
                     direction = "previous",
                     vertical_drill_jump = true,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-j>", function()
                 candy.select_node({
-                    query = query,
+                    queries = queries,
                     direction = "next",
                     vertical_drill_jump = true,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-h>", function()
                 candy.select_node({
-                    query = query,
+                    queries = queries,
                     direction = "previous",
                     current_line_only = true,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-l>", function()
                 candy.select_node({
-                    query = query,
+                    queries = queries,
                     direction = "next",
                     current_line_only = true,
                 })
             end, {})
 
             vim.keymap.set({ "n", "s", "i" }, "<C-A-p>", function()
-                candy.select_node({ query = query, direction = "previous" })
+                candy.select_node({ queries = queries, direction = "previous" })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-n>", function()
-                candy.select_node({ query = query, direction = "next" })
+                candy.select_node({ queries = queries, direction = "next" })
             end, {})
         end,
     },

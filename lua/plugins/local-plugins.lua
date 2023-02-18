@@ -16,10 +16,17 @@ return {
                 ((identifier) @cap)
                 ((string) @cap)
             ]]
+            local tsx_query = [[
+                ;; query
+                ((identifier) @cap)
+                ((string_fragment) @cap)
+                ((property_identifier) @cap)
+            ]]
 
             local queries = {
                 lua = lua_query,
                 python = python_query,
+                tsx = tsx_query,
             }
 
             vim.keymap.set({ "n", "s", "i" }, "<C-A-k>", function()

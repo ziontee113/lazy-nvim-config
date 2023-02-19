@@ -80,7 +80,7 @@ return {
             local lspconfig = require("lspconfig")
 
             -- Generic Settings
-            local generic_servers = { "svelte", "tsserver" }
+            local generic_servers = { "svelte", "tsserver", "tailwindcss" }
             for _, server in ipairs(generic_servers) do
                 lspconfig[server].setup({
                     on_attach = on_attach,

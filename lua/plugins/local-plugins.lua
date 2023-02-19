@@ -2,7 +2,7 @@ return {
     {
         "ziontee113/SelectEase",
         config = function()
-            local candy = require("SelectEase")
+            local select_ease = require("SelectEase")
 
             local lua_query = [[
                 ;; query
@@ -30,39 +30,51 @@ return {
             }
 
             vim.keymap.set({ "n", "s", "i" }, "<C-A-k>", function()
-                candy.select_node({
+                select_ease.select_node({
                     queries = queries,
                     direction = "previous",
                     vertical_drill_jump = true,
+                    fallback = function()
+                        select_ease.select_node({ queries = queries, direction = "previous" })
+                    end,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-j>", function()
-                candy.select_node({
+                select_ease.select_node({
                     queries = queries,
                     direction = "next",
                     vertical_drill_jump = true,
+                    fallback = function()
+                        select_ease.select_node({ queries = queries, direction = "next" })
+                    end,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-h>", function()
-                candy.select_node({
+                select_ease.select_node({
                     queries = queries,
                     direction = "previous",
                     current_line_only = true,
+                    fallback = function()
+                        select_ease.select_node({ queries = queries, direction = "previous" })
+                    end,
                 })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-l>", function()
-                candy.select_node({
+                select_ease.select_node({
                     queries = queries,
                     direction = "next",
                     current_line_only = true,
+                    fallback = function()
+                        select_ease.select_node({ queries = queries, direction = "next" })
+                    end,
                 })
             end, {})
 
             vim.keymap.set({ "n", "s", "i" }, "<C-A-p>", function()
-                candy.select_node({ queries = queries, direction = "previous" })
+                select_ease.select_node({ queries = queries, direction = "previous" })
             end, {})
             vim.keymap.set({ "n", "s", "i" }, "<C-A-n>", function()
-                candy.select_node({ queries = queries, direction = "next" })
+                select_ease.select_node({ queries = queries, direction = "next" })
             end, {})
         end,
     },

@@ -34,6 +34,7 @@ return {
                 select_ease.select_node({
                     queries = queries,
                     direction = "previous",
+                    -- visual_mode = true,
                     vertical_drill_jump = true,
                     fallback = function()
                         select_ease.select_node({ queries = queries, direction = "previous" })
@@ -44,6 +45,7 @@ return {
                 select_ease.select_node({
                     queries = queries,
                     direction = "next",
+                    -- visual_mode = true,
                     vertical_drill_jump = true,
                     fallback = function()
                         select_ease.select_node({ queries = queries, direction = "next" })

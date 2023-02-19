@@ -207,6 +207,56 @@ local start_row, start_col, end_row, end_col = node:range()
     target_table = snippets,
 })
 
+cs({
+    trigger = "getchar",
+    nodes = fmt(
+        [=[
+local ok, keynum = pcall(vim.fn.getchar)
+if ok then
+    local {} = string.char(keynum)
+
+    {}
+end
+]=],
+        {
+            i(1, "key"),
+            i(2, "-- TODO: do something with `key`"),
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "redraw",
+    nodes = fmt(
+        [=[
+vim.cmd("redraw")
+]=],
+        {
+            
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "set_text",
+    nodes = fmt(
+        [=[
+vim.api.nvim_buf_set_text({}, {}, {}, {}, {}, {{ {} }})
+]=],
+        {
+            i(1, "0"),
+            i(2, "30"),
+            i(3, "1"),
+            i(4, "30"),
+            i(5, "5"),
+            i(6, "sequence[2]"),
+        }
+),
+    target_table = snippets,
+})
+
 ------------------------------------------------------------------------- Snippets goes here
 
 return snippets, autosnippets

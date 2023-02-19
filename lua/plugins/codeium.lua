@@ -1,19 +1,24 @@
 return {
-    "https://github.com/Exafunction/codeium.vim",
-    config = function()
-        vim.keymap.set("i", "<C-j><C-k>", function()
-            vim.cmd("let g:codeium_enabled = v:true")
-            return vim.fn["codeium#Accept"]()
-        end, { expr = true })
-        vim.keymap.set("i", "<c-x>", function()
-            vim.cmd("let g:codeium_enabled = v:false")
-            return vim.fn["codeium#Clear"]()
-        end, { expr = true })
-        vim.keymap.set("i", "<c-;>", function()
-            return vim.fn["codeium#CycleCompletions"](1)
-        end, { expr = true })
-        vim.keymap.set("i", "<c-,>", function()
-            return vim.fn["codeium#CycleCompletions"](-1)
-        end, { expr = true })
-    end,
+    -- {
+    --     "https://github.com/Exafunction/codeium.vim",
+    --     event = "VeryLazy",
+    --     config = function()
+    --         vim.cmd("let g:codeium_enabled = v:false")
+    --
+    --         vim.keymap.set("i", "<C-j><C-k>", function()
+    --             vim.cmd("let g:codeium_enabled = v:true")
+    --             return vim.fn["codeium#Accept"]()
+    --         end, { expr = true })
+    --         vim.keymap.set("i", "<c-x>", function()
+    --             vim.cmd("let g:codeium_enabled = v:false")
+    --             return vim.fn["codeium#Clear"]()
+    --         end, { expr = true })
+    --         vim.keymap.set("i", "<c-;>", function()
+    --             return vim.fn["codeium#CycleCompletions"](1)
+    --         end, { expr = true })
+    --         vim.keymap.set("i", "<c-,>", function()
+    --             return vim.fn["codeium#CycleCompletions"](-1)
+    --         end, { expr = true })
+    --     end,
+    -- },
 }

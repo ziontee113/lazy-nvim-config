@@ -22,11 +22,18 @@ return {
                 ((string_fragment) @cap)
                 ((property_identifier) @cap)
             ]]
+            local rust_query = [[
+                ;; query
+                ((identifier) @cap)
+                ((field_identifier) @cap)
+                ((string_literal) @cap)
+            ]]
 
             local queries = {
                 lua = lua_query,
                 python = python_query,
                 tsx = tsx_query,
+                rust = rust_query,
             }
 
             -- Jump and Select

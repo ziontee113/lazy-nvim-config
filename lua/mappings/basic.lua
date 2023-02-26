@@ -1,5 +1,7 @@
--- Select Mode Mappings
+-- Terminal
+vim.keymap.set("t", "", "<C-\\><C-n>")
 
+-- Select Mode Mappings
 vim.keymap.set("s", "<BS>", function()
     vim.api.nvim_input("<Del>")
     vim.cmd("startinsert")

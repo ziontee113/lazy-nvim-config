@@ -22,6 +22,20 @@ let {} = thread::spawn(move || loop {{
     target_table = snippets,
 })
 
+cs({
+    trigger = "channel",
+    nodes = fmt(
+        [=[
+let ({}, {}) = mpsc::channel();
+]=],
+        {
+            i(1, "tx"),
+            i(2, "rx"),
+        }
+),
+    target_table = snippets,
+})
+
 ------------------------------------------------------------------------- Snippets goes here
 
 return snippets, autosnippets

@@ -1,18 +1,3 @@
-local function fugitive_mapping(mapping, cmd)
-    vim.keymap.set("n", mapping, function()
-        local old_height = vim.o.cmdheight
-        vim.o.cmdheight = 1
-        vim.cmd(cmd)
-        vim.o.cmdheight = old_height
-    end, {})
-end
-
-fugitive_mapping("<leader>gc", "G commit")
-fugitive_mapping("<leader>ga", "G add .")
-fugitive_mapping("<leader>gp", "G pull")
-fugitive_mapping("<leader>gP", "G push")
-fugitive_mapping("<leader>g<C-p>", "G push")
-
 return {
     {
         "tpope/vim-fugitive",
@@ -20,10 +5,25 @@ return {
         keys = {
             { "<C-9>", "<cmd>G<cr>" },
             { "gl", "<cmd>G log<cr>" },
+            "<leader>gc",
+            "<leader>ga",
         },
         dependencies = {
             "tpope/vim-rhubarb",
         },
+        config = function()
+            local function fugitive_mapping(mapping, cmd)
+                vim.keymap.set("n", mapping, function()
+                    local old_height = vim.o.cmdheight
+                    vim.o.cmdheight = 1
+                    vim.cmd(cmd)
+                    vim.o.cmdheight = old_height
+                end, {})
+            end
+
+            fugitive_mapping("<leader>gc", "G commit")
+            fugitive_mapping("<leader>ga", "G add .")
+        end,
     },
     {
         "lewis6991/gitsigns.nvim",

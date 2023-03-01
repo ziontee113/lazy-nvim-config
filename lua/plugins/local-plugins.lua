@@ -235,10 +235,6 @@ cs({{
                 query = {
                     [[
                         ;; query
-                        (((attribute_item) @attr (function_item) @cap (#vim-match? @attr "test")))
-                    ]],
-                    [[
-                        ;; query
                         (enum_item (type_identifier) @cap)
                         (trait_item (type_identifier) @cap)
                         (struct_item (type_identifier) @cap)
@@ -248,6 +244,10 @@ cs({{
                         (mod_item (identifier) @cap)
                         (macro_definition (identifier) @cap)
                         ]],
+                    [[
+                        ;; query
+                        (((attribute_item) @attr (function_item) @cap (#vim-match? @attr "test")))
+                    ]],
                     2,
                 },
                 regex = {},

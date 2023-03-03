@@ -27,6 +27,8 @@ return {
                 ((identifier) @cap)
                 ((field_identifier) @cap)
                 ((string_literal) @cap)
+                ((integer_literal) @cap)
+                ((match_pattern) @cap)
             ]]
 
             local queries = {

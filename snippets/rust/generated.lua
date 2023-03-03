@@ -36,6 +36,19 @@ let ({}, {}) = mpsc::channel();
     target_table = snippets,
 })
 
+cs({
+    trigger = "clear_screen",
+    nodes = fmt(
+        [=[
+print!("{{}}[2J", 27 as char);
+]=],
+        {
+            
+        }
+),
+    target_table = snippets,
+})
+
 ------------------------------------------------------------------------- Snippets goes here
 
 return snippets, autosnippets

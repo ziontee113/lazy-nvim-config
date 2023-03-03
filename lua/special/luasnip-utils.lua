@@ -18,10 +18,6 @@ function M.create_snippet(opts)
                 return
             end
 
-            if type(keymap) == "string" then
-                keymap = { { "i", "s" }, keymap }
-            end
-
             vim.api.nvim_create_autocmd({ "InsertEnter" }, {
                 pattern = opts.pattern,
                 group = augroup,
@@ -31,15 +27,16 @@ function M.create_snippet(opts)
                     if error then
                         vim.api.nvim_buf_set_var(0, "luasnip1", true)
 
-                        vim.keymap.set(keymap[1], keymap[2], function()
-                            ls.snip_expand(snippet)
-                            LAST_TRIGGERED_SNIPPET = snippet
+                        vim.keymap.set({ "i", "s" }, keymap, function()
+                            if vim.fn.mode() == "s" then
+                                vim.api.nvim_input("<BS>")
+                            end
+                            vim.schedule(function()
+                                ls.snip_expand(snippet)
+                                LAST_TRIGGERED_SNIPPET = snippet
+                            end)
                         end, { silent = true, buffer = true })
                     end
-
-                    -- if not vim.tbl_contains(USER_MAPPINGS, keymap[2]) then
-                    --     table.insert(USER_MAPPINGS, keymap[2])
-                    -- end
                 end,
             })
         end

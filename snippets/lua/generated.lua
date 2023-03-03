@@ -257,6 +257,32 @@ vim.api.nvim_buf_set_text({}, {}, {}, {}, {}, {{ {} }})
     target_table = snippets,
 })
 
+cs({
+    trigger = "query_item",
+    nodes = fmt(
+        [=[
+(({}) @cap)
+]=],
+        {
+            i(1, "match_pattern"),
+        }
+),
+    target_table = snippets,
+})
+
+cs({
+    trigger = "nvim_input",
+    nodes = fmt(
+        [=[
+vim.api.nvim_input("{}")
+]=],
+        {
+            i(1, "<BS>"),
+        }
+),
+    target_table = snippets,
+})
+
 ------------------------------------------------------------------------- Snippets goes here
 
 return snippets, autosnippets
